@@ -8,12 +8,7 @@
 import UIKit
 import CoreData
 
-//headers: {
-//    'content-type': 'application/json',
-//    'X-RapidAPI-Key': '7317a9c17fmshea5f87c68a44d94p1db783jsn224ceded23bb',
-//    'X-RapidAPI-Host': 'chatgpt-best-price.p.rapidapi.com'
-//  }
-//Base url: 'https://chatgpt-best-price.p.rapidapi.com/v1/chat/completions',
+//pass: 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
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
