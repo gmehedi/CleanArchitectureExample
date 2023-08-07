@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeHeaderView" id="U6b-Vx-4bR" customClass="HomeHeaderView" customModule="ChatGPTiOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="411" height="143"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UhJ-YU-p1b">
+                    <rect key="frame" x="0.0" y="0.0" width="411" height="143"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asj-as-HxX">
+                            <rect key="frame" x="0.0" y="0.0" width="411" height="123"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MnK-M4-Kqg">
+                                    <rect key="frame" x="105.66666666666669" y="31.666666666666671" width="200" height="60"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGc-UM-D34">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="60"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="GO TO PREMIUM">
+                                                <color key="titleColor" white="0.0" alpha="0.75026573129999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="tappedOnGoTOPremiumButton:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="VaE-FA-0DB"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="MGc-UM-D34" firstAttribute="top" secondItem="MnK-M4-Kqg" secondAttribute="top" id="9sk-GP-oaD"/>
+                                        <constraint firstAttribute="width" constant="200" id="XGD-Yn-wt5"/>
+                                        <constraint firstItem="MGc-UM-D34" firstAttribute="leading" secondItem="MnK-M4-Kqg" secondAttribute="leading" id="cAo-LP-OpZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="MGc-UM-D34" secondAttribute="trailing" id="f51-tk-HIR"/>
+                                        <constraint firstAttribute="bottom" secondItem="MGc-UM-D34" secondAttribute="bottom" id="mxi-6n-CY3"/>
+                                        <constraint firstAttribute="height" constant="60" id="ptd-LS-KLW"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="MnK-M4-Kqg" firstAttribute="centerX" secondItem="asj-as-HxX" secondAttribute="centerX" id="RvC-rX-NNA"/>
+                                <constraint firstItem="MnK-M4-Kqg" firstAttribute="centerY" secondItem="asj-as-HxX" secondAttribute="centerY" id="vie-Og-lFb"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="asj-as-HxX" firstAttribute="top" secondItem="UhJ-YU-p1b" secondAttribute="top" id="9kH-2z-MCx"/>
+                        <constraint firstItem="asj-as-HxX" firstAttribute="leading" secondItem="UhJ-YU-p1b" secondAttribute="leading" id="HD3-e3-t3D"/>
+                        <constraint firstAttribute="trailing" secondItem="asj-as-HxX" secondAttribute="trailing" id="HLB-IS-oZH"/>
+                        <constraint firstAttribute="bottom" secondItem="asj-as-HxX" secondAttribute="bottom" constant="20" id="MGq-ue-aol"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="UhJ-YU-p1b" secondAttribute="trailing" id="3Ke-Y6-5L7"/>
+                <constraint firstAttribute="bottom" secondItem="UhJ-YU-p1b" secondAttribute="bottom" id="LpH-zJ-lSH"/>
+                <constraint firstItem="UhJ-YU-p1b" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="Yxq-lK-Qt3"/>
+                <constraint firstItem="UhJ-YU-p1b" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="dJf-fa-qOw"/>
+            </constraints>
+            <connections>
+                <outlet property="premiumView" destination="MnK-M4-Kqg" id="bVP-S2-UrR"/>
+            </connections>
+            <point key="canvasLocation" x="141.22137404580153" y="21.47887323943662"/>
+        </collectionReusableView>
+    </objects>
+</document>
