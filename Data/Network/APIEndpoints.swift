@@ -9,7 +9,7 @@ import Foundation
 
 struct APIEndpoints {
     
-    static func getProductResponse(with productsRequestDTO: ProductsRequestDTO) -> Endpoint<ProductResponseDTO> { //Decode type
+    static func getProductResponse(with productsRequestDTO: ProductsRequestDTO) -> Endpoint<ProductsResponseDTO> { //Decode type
         
         return Endpoint(
             path: "products",

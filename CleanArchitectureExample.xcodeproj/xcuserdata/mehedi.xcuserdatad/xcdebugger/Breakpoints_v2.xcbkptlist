@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "7F7847FD-6FE8-492D-ACE7-D97740EF3725"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE3AF750-A5BA-4838-84E2-6436B98C7D65"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Presentation/Scene/FetchProductsScene/ViewController/FetchProductsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "setupBindings()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DE3AF750-A5BA-4838-84E2-6436B98C7D65 - 2a5c36c75449e294"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Result&lt;CleanArchitectureExample.ProductResponse, CleanArchitectureExample.DataTransferError&gt;&gt;) -&gt; () in CleanArchitectureExample.FetchProductsViewController.setupBindings() -&gt; ()"
+                  moduleName = "CleanArchitectureExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehedi/Desktop/R&amp;DWorkSpace/CleanArchitectureExample/Presentation/Scene/FetchProductsScene/ViewController/FetchProductsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "1640">
+               </Location>
+               <Location
+                  uuid = "DE3AF750-A5BA-4838-84E2-6436B98C7D65 - 6454bced139713cc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;Swift.Result&lt;CleanArchitectureExample.ProductResponse, CleanArchitectureExample.DataTransferError&gt;&gt;) -&gt; () in CleanArchitectureExample.FetchProductsViewController.setupBindings() -&gt; ()"
+                  moduleName = "CleanArchitectureExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehedi/Desktop/R&amp;DWorkSpace/CleanArchitectureExample/Presentation/Scene/FetchProductsScene/ViewController/FetchProductsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6A81D355-6578-4550-8959-B60484F6214B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Presentation/Scene/FetchProductsScene/ViewController/FetchProductsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9AEEC90-B7E0-4746-9BF3-D986B45E84A9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Presentation/Scene/FetchProductsScene/ViewModel/FetchProductsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "fetchProducts()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D9AEEC90-B7E0-4746-9BF3-D986B45E84A9 - 5f67744b0d98978d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CleanArchitectureExample.FetchProductsViewModel.fetchProducts() -&gt; Swift.Optional&lt;CleanArchitectureExample.Cancellable&gt;"
+                  moduleName = "CleanArchitectureExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehedi/Desktop/R&amp;DWorkSpace/CleanArchitectureExample/Presentation/Scene/FetchProductsScene/ViewModel/FetchProductsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  uuid = "D9AEEC90-B7E0-4746-9BF3-D986B45E84A9 - 1f5801aec3fb9981"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (CleanArchitectureExample.ProductResponse) -&gt; () in CleanArchitectureExample.FetchProductsViewModel.fetchProducts() -&gt; Swift.Optional&lt;CleanArchitectureExample.Cancellable&gt;"
+                  moduleName = "CleanArchitectureExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehedi/Desktop/R&amp;DWorkSpace/CleanArchitectureExample/Presentation/Scene/FetchProductsScene/ViewModel/FetchProductsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "797E9673-CC15-429A-8D3F-2098AF36534B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Presentation/Scene/FetchProductsScene/ViewModel/FetchProductsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "fetchProducts()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

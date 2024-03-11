@@ -31,7 +31,7 @@ class FetchProductsViewController: UIViewController, Alertable {
         
         self.setupBindings()
         // Do any additional setup after loading the view.
-        _ = self.viewModel.fetchProducts()
+        self.viewModel.fetchProducts()
     }
     
     @IBAction func tappedOnBackButton(_ sender: Any) {
@@ -71,15 +71,15 @@ extension FetchProductsViewController {
             
         })
         
-        self.viewModel.cache.observe(on: self, observerBlock: { [weak self] productsItem in
+        self.viewModel.cache.observe(on: self, observerBlock: { [weak self] productResponse in
             
             guard let self = self else {
                 return
             }
             
             DispatchQueue.main.async {
-                if let product = productsItem {
-                    self.products = product
+                if let product = productResponse {
+                    self.products = productResponse?.products ?? []
                     self.productsCollectionView.reloadData()
                 }
                
@@ -97,7 +97,7 @@ extension FetchProductsViewController {
         
         switch error {
         case .networkFailure:
-            
+            self.showNetworkError(description: "No Internet\nPlease check your internet.")
             break
         case .noResponse:
             

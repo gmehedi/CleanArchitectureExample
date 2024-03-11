@@ -26,20 +26,25 @@ final class ProductsRepository {
 
 extension ProductsRepository: ProductsRepositoryProtocol {
     
-    func fetchQuery(productsQuery: ProductsQuery, cached: @escaping ([ProductItem]) -> Void, completion: @escaping (Result<ProductResponse, DataTransferError>) -> Void) -> Cancellable? {
+    func fetchQuery(productsQuery: ProductQuery, page: Int, cached: @escaping (ProductResponse) -> Void, completion: @escaping (Result<(ProductResponse), DataTransferError>) -> Void) -> Cancellable? {
         
         let task = RepositoryTask()
         
-        self.cacheProductsCoreDataStorage.fetchProducts(completion: { [weak self] productItems in
+        let requestDTO = ProductsRequestDTO(query: productsQuery.query, page: page)
+        
+        self.cacheProductsCoreDataStorage.getResponse(for: requestDTO, completion: { [weak self, backgroundQueue] result in
             
-            guard let self = self else { return }
+            guard let self = self else {
+                return
+            }
             
-            //Got cached Data
-            cached(productItems)
+            if case let .success(responseDTO?) = result {
+                cached(responseDTO.productResponseDTO.toDomain())
+            }
             
             guard !task.isCancelled else { return }
             
-            let productsRequest = ProductsRequestDTO(query: productsQuery.query, page: productsQuery.page)
+            let productsRequest = ProductsRequestDTO(query: productsQuery.query, page: page)
             let endpoint = APIEndpoints.getProductResponse(with: productsRequest)
            
             task.networkTask = self.dataTransferService.request(
@@ -50,12 +55,8 @@ extension ProductsRepository: ProductsRepositoryProtocol {
                 switch result {
                 case .success(let responseDTO):
                     
-                    let responseDomain = responseDTO.products.map({ $0.toDomain() })
-                    
-                    self.cacheProductsCoreDataStorage.saveProducts(products: responseDTO.products, completion: {_ in
-                        
-                    })
-                    completion(.success(responseDTO.toDomain()))
+                    self.cacheProductsCoreDataStorage.save(response: responseDTO, for: productsRequest)
+                    completion(.success(responseDTO.productResponseDTO.toDomain()))
                     
                 case .failure(let error):
                     
@@ -66,6 +67,6 @@ extension ProductsRepository: ProductsRepositoryProtocol {
         })
         
         return task
-        
+    
     }
 }

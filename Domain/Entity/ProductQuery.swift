@@ -7,7 +7,6 @@
 
 import Foundation
 
-struct ProductsQuery: Equatable {
+struct ProductQuery: Equatable {
     let query: String
-    let page: Int
 }

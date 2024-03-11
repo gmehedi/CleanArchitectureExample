@@ -9,9 +9,15 @@ import Foundation
 import CoreData
 
 // MARK: - Products
+struct ProductsResponseDTO: Codable {
+    let productResponseDTO: ProductResponseDTO
+}
+
 struct ProductResponseDTO: Codable {
+    let total: Int
+    let skip: Int
+    let limit: Int
     let products: [ProductItemDTO]
-    let total, skip, limit: Int
 }
 
 // MARK: - Product
@@ -26,12 +32,20 @@ struct ProductItemDTO: Codable {
     let images: [String]
 }
 
+
+extension ProductsResponseDTO {
+    
+    func toDomain() -> ProductsResponse {
+        return .init(products: self.productResponseDTO.toDomain())
+    }
+    
+}
+
 extension ProductResponseDTO {
     
     func toDomain() -> ProductResponse {
-        return .init(products:  self.products.map({$0.toDomain()}), total: self.total, skip: self.skip, limit: self.limit)
+        return .init(total: self.total, skip: self.skip, limit: self.limit, products: self.products.map({$0.toDomain()}))
     }
-    
 }
 
 extension ProductItemDTO {
@@ -40,9 +54,9 @@ extension ProductItemDTO {
         return .init(id: Int32(self.id), title: self.title, description: self.description, price: self.price, discountPercentage: self.discountPercentage, rating: self.rating, stock: self.stock, brand: self.brand, category: self.category, thumbnail: self.thumbnail, images: self.images)
     }
     
-    func toEntity(context: NSManagedObjectContext) -> ProductEntity {
+    func toEntity(context: NSManagedObjectContext) -> ProductResponseEntity {
         
-        let entity: ProductEntity = .init(context: context)
+        let entity: ProductResponseEntity = .init(context: context)
 
         entity.id = Int32(self.id)
         entity.createAt = self.getDate()
@@ -62,3 +76,5 @@ extension ProductItemDTO {
         return date
     }
 }
+
+

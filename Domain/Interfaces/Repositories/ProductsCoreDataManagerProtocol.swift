@@ -9,6 +9,9 @@ import Foundation
 import CoreData
 
 protocol ProductsCoreDataManagerProtocol {
-    func fetchProducts(completion: @escaping (([ProductItem]) -> Void) )
-    func saveProducts(products: [ProductItemDTO], completion: @escaping ((Bool) -> Void) )
+    func getResponse(
+        for request: ProductsRequestDTO,
+        completion: @escaping (Result<ProductsResponseDTO?, Error>) -> Void
+    )
+    func save(response: ProductsResponseDTO, for requestDto: ProductsRequestDTO)
 }

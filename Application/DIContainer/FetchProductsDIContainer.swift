@@ -22,17 +22,27 @@ final class FetchProductsDIContainer {
     init(dependencies: Dependencies) {
         self.dependencies = dependencies
     }
-    // MARK: - Persistent Storage
-    lazy var fetchProductsResponseCache: ProductsCoreDataManager = ProductsCoreDataManager(coreDataStorage: CoreDataStorage.shared)
     
+    // MARK: - Persistent Storage
+    lazy var fetchProductsResponseCache: ProductsQueriesRepositoryProtocol = ProductsQueriesCoreDataManager(coreDataStorage: CoreDataStorage.shared, maxStorageLimit: 100)
+    
+    // MARK: - Persistent Storage
+    lazy var productsResponseCoreDataManager: ProductsCoreDataManagerProtocol = ProductsResponseCoreDataManager(coreDataStorage: CoreDataStorage.shared)
+    
+    
+    // MARK: - Persistent Storage
+    lazy var productsQueriesRepositoryCache: ProductsQueriesCoreDataManager = ProductsQueriesCoreDataManager(coreDataStorage: CoreDataStorage.shared, maxStorageLimit: 100)
+    
+
     // MARK: - Make Products Repository
-    func makeFetchProductRepository() -> ProductsRepositoryProtocol {
-        return ProductsRepository(dataTransferService: self.dependencies.apiDataTransferService, cacheProductsCoreDataStorage: fetchProductsResponseCache)
+    
+    func getProductsRepositoryProtocol() -> ProductsRepository {
+        return ProductsRepository(dataTransferService: self.dependencies.apiDataTransferService, cacheProductsCoreDataStorage: self.productsResponseCoreDataManager)
     }
     
     // MARK: - Make Product Use Case
     func makeFetchProductsUseCase() -> FetchProductsUseCase {
-        return FetchProductsUseCase(productsRepositoryProtocol: self.makeFetchProductRepository())
+        return FetchProductsUseCase(productsRepositoryProtocol: getProductsRepositoryProtocol(), productsQueriesRepository: self.fetchProductsResponseCache)
     }
     
     // MARK: - Make Chatting View Model

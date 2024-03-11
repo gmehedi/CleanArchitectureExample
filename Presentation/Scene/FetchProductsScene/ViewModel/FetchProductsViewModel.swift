@@ -9,8 +9,15 @@ import Foundation
 
 class FetchProductsViewModel {
    
+    var currentPage: Int = 0
+    var totalPageCount: Int = 1
+    var hasMorePages: Bool { currentPage < totalPageCount }
+    var nextPage: Int { hasMorePages ? currentPage + 1 : currentPage }
+    
+    private var pages: [ProductResponse] = []
+    
     var result: Observable< (Result<ProductResponse, DataTransferError>)? > = Observable(nil)
-    var cache: Observable< [ProductItem]? > = Observable(nil)
+    var cache: Observable< ProductResponse? > = Observable(nil)
     
     let fetchProductsUseCase: FetchProductsUseCase
     
@@ -22,9 +29,10 @@ class FetchProductsViewModel {
 
 extension FetchProductsViewModel {
     
+    @discardableResult
     func fetchProducts() -> Cancellable? {
         
-        let rquestValue = GetProductsUseCaseRquestValue(query: ProductsQuery(query: "", page: 1))
+        let rquestValue = GetProductsUseCaseRquestValue(query: ProductQuery(query: ""), page: self.nextPage)
         
         return self.fetchProductsUseCase.execute(requestValue: rquestValue, cached: { products in
             self.cache.value = products
@@ -32,5 +40,6 @@ extension FetchProductsViewModel {
             self.result.value = result
         })
     }
+    
 }
 

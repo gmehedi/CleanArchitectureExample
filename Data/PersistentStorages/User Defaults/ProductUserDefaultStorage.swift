@@ -16,9 +16,9 @@ final class ProductUserDefaultStorage {
         self.userDefaults = userDefaults
     }
     
-    public func fetchTemplate() -> ProductResponse? {
+    public func fetchTemplate() -> ProductsResponse? {
         if let queriesData = userDefaults.object(forKey: recentsProductResponse) as? Data {
-            if let templateResponse = try? JSONDecoder().decode(ProductResponseDTO.self, from: queriesData) {
+            if let templateResponse = try? JSONDecoder().decode(ProductsResponseDTO.self, from: queriesData) {
                 return templateResponse.toDomain()
             }else{
                 return nil
@@ -28,7 +28,7 @@ final class ProductUserDefaultStorage {
         }
     }
 
-    public func saveTemplate(productResponseDTO: ProductResponseDTO, complation: @escaping (Bool) -> Void) {
+    public func saveTemplate(productResponseDTO: ProductsResponseDTO, complation: @escaping (Bool) -> Void) {
         
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(productResponseDTO) {

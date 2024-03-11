@@ -11,8 +11,9 @@ import CoreData
 protocol ProductsRepositoryProtocol {
     @discardableResult
     func fetchQuery(
-        productsQuery: ProductsQuery,
-        cached: @escaping ([ProductItem]) -> Void,
+        productsQuery: ProductQuery,
+        page: Int,
+        cached: @escaping (ProductResponse) -> Void,
         completion: @escaping (Result<(ProductResponse), DataTransferError>) -> Void
     ) -> Cancellable?
 }
