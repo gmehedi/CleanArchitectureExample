@@ -11,7 +11,7 @@ import CoreData
 protocol ProductsCoreDataManagerProtocol {
     func getResponse(
         for request: ProductsRequestDTO,
-        completion: @escaping (Result<ProductsResponseDTO?, Error>) -> Void
+        completion: @escaping (Result<ProductResponseDTO?, Error>) -> Void
     )
-    func save(response: ProductsResponseDTO, for requestDto: ProductsRequestDTO)
+    func save(response: ProductResponseDTO, for requestDto: ProductsRequestDTO)
 }

@@ -49,87 +49,165 @@
                   endingLineNumber = "63"
                   offsetFromSymbolStart = "84">
                </Location>
+               <Location
+                  uuid = "DE3AF750-A5BA-4838-84E2-6436B98C7D65 - 76307f9070506c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Result&lt;Swift.Optional&lt;CleanArchitectureExample.ProductResponse&gt;, CleanArchitectureExample.DataTransferError&gt;&gt;) -&gt; () in CleanArchitectureExample.FetchProductsViewController.setupBindings() -&gt; ()"
+                  moduleName = "CleanArchitectureExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehedi/Desktop/R&amp;DWorkSpace/CleanArchitectureExample/Presentation/Scene/FetchProductsScene/ViewController/FetchProductsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "1640">
+               </Location>
+               <Location
+                  uuid = "DE3AF750-A5BA-4838-84E2-6436B98C7D65 - e259972ecf5cf229"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;Swift.Result&lt;Swift.Optional&lt;CleanArchitectureExample.ProductResponse&gt;, CleanArchitectureExample.DataTransferError&gt;&gt;) -&gt; () in CleanArchitectureExample.FetchProductsViewController.setupBindings() -&gt; ()"
+                  moduleName = "CleanArchitectureExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehedi/Desktop/R&amp;DWorkSpace/CleanArchitectureExample/Presentation/Scene/FetchProductsScene/ViewController/FetchProductsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "84">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6A81D355-6578-4550-8959-B60484F6214B"
+            uuid = "5268579A-6F25-4580-B967-F5C7BEDA4AFF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Domain/UseCase/FetchProductsUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "execute(requestValue:cached:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5268579A-6F25-4580-B967-F5C7BEDA4AFF - d169f1199fc502f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;CleanArchitectureExample.ProductResponse, CleanArchitectureExample.DataTransferError&gt;) -&gt; () in CleanArchitectureExample.FetchProductsUseCase.execute(requestValue: CleanArchitectureExample.GetProductsUseCaseRquestValue, cached: (CleanArchitectureExample.ProductResponse) -&gt; (), completion: (Swift.Result&lt;CleanArchitectureExample.ProductResponse, CleanArchitectureExample.DataTransferError&gt;) -&gt; ()) -&gt; Swift.Optional&lt;CleanArchitectureExample.Cancellable&gt;"
+                  moduleName = "CleanArchitectureExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehedi/Desktop/R&amp;DWorkSpace/CleanArchitectureExample/Domain/UseCase/FetchProductsUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "352">
+               </Location>
+               <Location
+                  uuid = "5268579A-6F25-4580-B967-F5C7BEDA4AFF - f05f31d59e5cf625"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;CleanArchitectureExample.ProductResponse&gt;, CleanArchitectureExample.DataTransferError&gt;) -&gt; () in CleanArchitectureExample.FetchProductsUseCase.execute(requestValue: CleanArchitectureExample.GetProductsUseCaseRquestValue, cached: (Swift.Optional&lt;CleanArchitectureExample.ProductResponse&gt;) -&gt; (), completion: (Swift.Result&lt;Swift.Optional&lt;CleanArchitectureExample.ProductResponse&gt;, CleanArchitectureExample.DataTransferError&gt;) -&gt; ()) -&gt; Swift.Optional&lt;CleanArchitectureExample.Cancellable&gt;"
+                  moduleName = "CleanArchitectureExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mehedi/Desktop/R&amp;DWorkSpace/CleanArchitectureExample/Domain/UseCase/FetchProductsUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "340">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7D6B07CD-09C8-41EF-8BA3-330511D77662"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Presentation/Scene/FetchProductsScene/ViewController/FetchProductsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "setupBindings()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D9AEEC90-B7E0-4746-9BF3-D986B45E84A9"
+            uuid = "06F1CC92-8E75-4F25-B3FE-085622C9E078"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Presentation/Scene/FetchProductsScene/ViewModel/FetchProductsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "fetchProducts()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E9974689-B233-4C30-B38D-ABAF5668C24B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Data/Repositories/ProductsRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "fetchQuery(productsQuery:page:cached:completion:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D9AEEC90-B7E0-4746-9BF3-D986B45E84A9 - 5f67744b0d98978d"
+                  uuid = "E9974689-B233-4C30-B38D-ABAF5668C24B - 59173a53a9705819"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "CleanArchitectureExample.FetchProductsViewModel.fetchProducts() -&gt; Swift.Optional&lt;CleanArchitectureExample.Cancellable&gt;"
+                  symbolName = "closure #1 (Swift.Result&lt;CleanArchitectureExample.ProductsResponseDTO, CleanArchitectureExample.DataTransferError&gt;) -&gt; () in closure #1 (Swift.Result&lt;Swift.Optional&lt;CleanArchitectureExample.ProductsResponseDTO&gt;, Swift.Error&gt;) -&gt; () in CleanArchitectureExample.ProductsRepository.fetchQuery(productsQuery: CleanArchitectureExample.ProductQuery, page: Swift.Int, cached: (Swift.Optional&lt;CleanArchitectureExample.ProductResponse&gt;) -&gt; (), completion: (Swift.Result&lt;Swift.Optional&lt;CleanArchitectureExample.ProductResponse&gt;, CleanArchitectureExample.DataTransferError&gt;) -&gt; ()) -&gt; Swift.Optional&lt;CleanArchitectureExample.Cancellable&gt;"
                   moduleName = "CleanArchitectureExample"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehedi/Desktop/R&amp;DWorkSpace/CleanArchitectureExample/Presentation/Scene/FetchProductsScene/ViewModel/FetchProductsViewModel.swift"
+                  urlString = "file:///Users/mehedi/Desktop/R&amp;DWorkSpace/CleanArchitectureExample/Data/Repositories/ProductsRepository.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "156">
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "512">
                </Location>
                <Location
-                  uuid = "D9AEEC90-B7E0-4746-9BF3-D986B45E84A9 - 1f5801aec3fb9981"
+                  uuid = "E9974689-B233-4C30-B38D-ABAF5668C24B - 8e609149becdedd2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (CleanArchitectureExample.ProductResponse) -&gt; () in CleanArchitectureExample.FetchProductsViewModel.fetchProducts() -&gt; Swift.Optional&lt;CleanArchitectureExample.Cancellable&gt;"
+                  symbolName = "closure #1 (Swift.Result&lt;CleanArchitectureExample.ProductResponseDTO, CleanArchitectureExample.DataTransferError&gt;) -&gt; () in closure #1 (Swift.Result&lt;Swift.Optional&lt;CleanArchitectureExample.ProductResponseDTO&gt;, Swift.Error&gt;) -&gt; () in CleanArchitectureExample.ProductsRepository.fetchQuery(productsQuery: CleanArchitectureExample.ProductQuery, page: Swift.Int, cached: (Swift.Optional&lt;CleanArchitectureExample.ProductResponse&gt;) -&gt; (), completion: (Swift.Result&lt;Swift.Optional&lt;CleanArchitectureExample.ProductResponse&gt;, CleanArchitectureExample.DataTransferError&gt;) -&gt; ()) -&gt; Swift.Optional&lt;CleanArchitectureExample.Cancellable&gt;"
                   moduleName = "CleanArchitectureExample"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mehedi/Desktop/R&amp;DWorkSpace/CleanArchitectureExample/Presentation/Scene/FetchProductsScene/ViewModel/FetchProductsViewModel.swift"
+                  urlString = "file:///Users/mehedi/Desktop/R&amp;DWorkSpace/CleanArchitectureExample/Data/Repositories/ProductsRepository.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "80">
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "520">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "797E9673-CC15-429A-8D3F-2098AF36534B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Presentation/Scene/FetchProductsScene/ViewModel/FetchProductsViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "fetchProducts()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

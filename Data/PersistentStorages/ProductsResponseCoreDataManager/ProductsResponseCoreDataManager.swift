@@ -46,11 +46,11 @@ final class ProductsResponseCoreDataManager {
 
 extension ProductsResponseCoreDataManager: ProductsCoreDataManagerProtocol {
     
-    func getResponse(for request: ProductsRequestDTO, completion: @escaping (Result<ProductsResponseDTO?, Error>) -> Void) {
-        
+    func getResponse(for request: ProductsRequestDTO, completion: @escaping (Result<ProductResponseDTO?, Error>) -> Void) {
+        completion(.success(nil))
     }
     
-    func save(response: ProductsResponseDTO, for requestDto: ProductsRequestDTO) {
+    func save(response: ProductResponseDTO, for requestDto: ProductsRequestDTO) {
         
     }
     

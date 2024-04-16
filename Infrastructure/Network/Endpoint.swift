@@ -22,7 +22,7 @@ class Endpoint<R>: ResponseRequestable {
     let isFullPath: Bool
     let method: HTTPMethodType
     let headerParameters: [String: String]
-    let queryParametersEncodable: Encodable?
+    let queryParametersEncodable: Encodable? //Parsing Model
     let queryParameters: [String: Any]
     let bodyParametersEncodable: Encodable?
     let bodyParameters: [String: Any]

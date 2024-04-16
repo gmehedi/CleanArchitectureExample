@@ -22,7 +22,7 @@ class Logger: NSObject {
     }
     
     
-    static func logPrintJsonFrom(model: ProductsResponseDTO) {
+    static func logPrintJsonFrom(model: ProductResponseDTO) {
 #if DEBUG
         do {
             let encodedData = (try? JSONEncoder().encode(model))!

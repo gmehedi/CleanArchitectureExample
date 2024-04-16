@@ -87,7 +87,10 @@ extension DefaultDataTransferService: DataTransferService {
         networkService.request(endpoint: endpoint) { result in
             switch result {
             case .success(let data):
+                //Print json for debug
+                
                 readJSONFile(jsonData: data!)
+                
                 let result: Result<T, DataTransferError> = self.decode(
                     data: data,
                     decoder: endpoint.responseDecoder
@@ -138,7 +141,9 @@ extension DefaultDataTransferService: DataTransferService {
         decoder: ResponseDecoder
     ) -> Result<T, DataTransferError> {
         do {
-            guard let data = data else { return .failure(.noResponse) }
+            guard let data = data else {
+                return .failure(.noResponse)
+            }
             
             print(String(data: data, encoding: .utf8) ?? "Invalid data")
 

@@ -10,8 +10,8 @@ import Foundation
 protocol FetchProductsUseCaseProtocol {
     func execute(
         requestValue: GetProductsUseCaseRquestValue,
-        cached: @escaping (ProductResponse) -> Void,
-        completion: @escaping (Result<ProductResponse, DataTransferError>) -> Void
+        cached: @escaping (ProductResponse?) -> Void,
+        completion: @escaping (Result<ProductResponse?, DataTransferError>) -> Void
     ) -> Cancellable?
     
 }
@@ -33,7 +33,7 @@ class FetchProductsUseCase {
 //MARK: Fetch Products UseCase
 extension FetchProductsUseCase: FetchProductsUseCaseProtocol {
     
-    func execute(requestValue: GetProductsUseCaseRquestValue, cached: @escaping (ProductResponse) -> Void, completion: @escaping (Result<ProductResponse, DataTransferError>) -> Void) -> Cancellable? {
+    func execute(requestValue: GetProductsUseCaseRquestValue, cached: @escaping (ProductResponse?) -> Void, completion: @escaping (Result<ProductResponse?, DataTransferError>) -> Void) -> Cancellable? {
         
         let productsQuery = ProductQuery(query: requestValue.query.query)
         

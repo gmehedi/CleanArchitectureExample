@@ -9,7 +9,7 @@ import Foundation
 
 struct APIEndpoints {
     
-    static func getProductResponse(with productsRequestDTO: ProductsRequestDTO) -> Endpoint<ProductsResponseDTO> { //Decode type
+    static func getProductResponse(with productsRequestDTO: ProductsRequestDTO) -> Endpoint<ProductResponseDTO> { //Decode type
         
         return Endpoint(
             path: "products",
@@ -17,7 +17,8 @@ struct APIEndpoints {
             headerParameters: [
                 "Accept": "application/json",
                 "Content-Type" : "application/json"
-            ]
+            ],
+            queryParametersEncodable: productsRequestDTO
         )
         //bodyParametersEncodable: productsRequestDTO
     }

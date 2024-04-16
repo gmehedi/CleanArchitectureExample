@@ -54,7 +54,7 @@ extension FetchProductsViewController {
             case .success((let productResponse)):
                 //debugPrint("APICALL   22222  ")
                 DispatchQueue.main.async {
-                    self.products = productResponse.products
+                    self.products = productResponse?.products ?? []
                     self.productsCollectionView.reloadData()
                 }
                 

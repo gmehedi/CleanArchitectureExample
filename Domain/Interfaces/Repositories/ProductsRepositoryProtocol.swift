@@ -13,7 +13,7 @@ protocol ProductsRepositoryProtocol {
     func fetchQuery(
         productsQuery: ProductQuery,
         page: Int,
-        cached: @escaping (ProductResponse) -> Void,
-        completion: @escaping (Result<(ProductResponse), DataTransferError>) -> Void
+        cached: @escaping (ProductResponse?) -> Void,
+        completion: @escaping (Result<(ProductResponse?), DataTransferError>) -> Void
     ) -> Cancellable?
 }

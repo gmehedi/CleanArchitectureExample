@@ -26,7 +26,7 @@ final class ProductsRepository {
 
 extension ProductsRepository: ProductsRepositoryProtocol {
     
-    func fetchQuery(productsQuery: ProductQuery, page: Int, cached: @escaping (ProductResponse) -> Void, completion: @escaping (Result<(ProductResponse), DataTransferError>) -> Void) -> Cancellable? {
+    func fetchQuery(productsQuery: ProductQuery, page: Int, cached: @escaping (ProductResponse?) -> Void, completion: @escaping (Result<(ProductResponse?), DataTransferError>) -> Void) -> Cancellable? {
         
         let task = RepositoryTask()
         
@@ -39,7 +39,7 @@ extension ProductsRepository: ProductsRepositoryProtocol {
             }
             
             if case let .success(responseDTO?) = result {
-                cached(responseDTO.productResponseDTO.toDomain())
+                cached(responseDTO.toDomain())
             }
             
             guard !task.isCancelled else { return }
@@ -56,7 +56,7 @@ extension ProductsRepository: ProductsRepositoryProtocol {
                 case .success(let responseDTO):
                     
                     self.cacheProductsCoreDataStorage.save(response: responseDTO, for: productsRequest)
-                    completion(.success(responseDTO.productResponseDTO.toDomain()))
+                    completion(.success(responseDTO.toDomain()))
                     
                 case .failure(let error):
                     

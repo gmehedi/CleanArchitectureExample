@@ -16,7 +16,7 @@ class FetchProductsViewModel {
     
     private var pages: [ProductResponse] = []
     
-    var result: Observable< (Result<ProductResponse, DataTransferError>)? > = Observable(nil)
+    var result: Observable< (Result<ProductResponse?, DataTransferError>)? > = Observable(nil)
     var cache: Observable< ProductResponse? > = Observable(nil)
     
     let fetchProductsUseCase: FetchProductsUseCase
@@ -35,7 +35,10 @@ extension FetchProductsViewModel {
         let rquestValue = GetProductsUseCaseRquestValue(query: ProductQuery(query: ""), page: self.nextPage)
         
         return self.fetchProductsUseCase.execute(requestValue: rquestValue, cached: { products in
-            self.cache.value = products
+            if let productsList = products {
+                self.cache.value = products
+            }
+           
         }, completion: { result in
             self.result.value = result
         })

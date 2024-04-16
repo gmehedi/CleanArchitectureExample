@@ -8,13 +8,13 @@
 import Foundation
 
 // MARK: - Products
-struct ProductsResponse: Equatable {
-    static func == (lhs: ProductsResponse, rhs: ProductsResponse) -> Bool {
-        return true
-    }
-    
-    let products: ProductResponse
-}
+//struct ProductsResponse: Equatable {
+//    static func == (lhs: ProductsResponse, rhs: ProductsResponse) -> Bool {
+//        return true
+//    }
+//    
+//    let products: ProductResponse
+//}
 
 struct ProductResponse: Equatable {
     let total: Int
@@ -27,7 +27,7 @@ struct ProductResponse: Equatable {
 struct ProductItem: Equatable {
     let id: Int32
     let title, description: String
-    let price: Int
+    let price: Int32
     let discountPercentage, rating: Double
     let stock: Int
     let brand, category: String
