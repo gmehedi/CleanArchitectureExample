@@ -17,9 +17,9 @@ import Foundation
 //}
 
 struct ProductResponse: Equatable {
-    let total: Int
-    let skip: Int
-    let limit: Int
+    let total: Int32
+    let skip: Int32
+    let limit: Int32
     let products: [ProductItem]
 }
 
@@ -34,3 +34,7 @@ struct ProductItem: Equatable {
     let thumbnail: String
     let images: [String]
 }
+
+//struct ImageURL: Equatable {
+//    let imageURL: String
+//}

@@ -335,19 +335,19 @@
 		CE9E0CE42A809BB5002B737F /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				CE9E0CE52A809BB5002B737F /* Repositories */,
+				CE9E0CE52A809BB5002B737F /* RepositoriesProtocol */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
 		};
-		CE9E0CE52A809BB5002B737F /* Repositories */ = {
+		CE9E0CE52A809BB5002B737F /* RepositoriesProtocol */ = {
 			isa = PBXGroup;
 			children = (
 				CE9E0CE62A809BB5002B737F /* ProductsCoreDataManagerProtocol.swift */,
 				CE9E0CE72A809BB5002B737F /* ProductsRepositoryProtocol.swift */,
 				B28054532B67AF1100EB82EC /* ProductsQueriesRepositoryProtocol.swift */,
 			);
-			path = Repositories;
+			path = RepositoriesProtocol;
 			sourceTree = "<group>";
 		};
 		CE9E0CE82A809BB5002B737F /* Presentation */ = {

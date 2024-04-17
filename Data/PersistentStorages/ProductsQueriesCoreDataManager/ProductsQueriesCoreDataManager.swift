@@ -22,11 +22,11 @@ final class ProductsQueriesCoreDataManager {
     private func fetchRequest(for requestDto: ProductsRequestDTO) -> NSFetchRequest<ProductsRequestEntity> {
 
          let request: NSFetchRequest = ProductsRequestEntity.fetchRequest()
-         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(ProductResponseEntity.createAt),
+         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(ProductResponseItemEntity.createAt),
                                                      ascending: false)]
          request.predicate = NSPredicate(format: "%K = %@ AND %K = %d",
-                                         #keyPath(ProductsRequestEntity.query), requestDto.query,
-                                         #keyPath(ProductsRequestEntity.page), requestDto.page)
+                                         #keyPath(ProductsRequestEntity.skip), requestDto.skip,
+                                         #keyPath(ProductsRequestEntity.limit), requestDto.limit)
         return request
     }
 

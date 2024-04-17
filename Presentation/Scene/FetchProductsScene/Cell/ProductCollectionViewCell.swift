@@ -9,6 +9,7 @@ import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var indexLabel: UILabel!
     static let id = "ProductCollectionViewCell"
     
     @IBOutlet var titleLabel: UILabel!

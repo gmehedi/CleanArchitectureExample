@@ -9,5 +9,6 @@ import Foundation
 
 struct ProductsRequestDTO: Encodable {
     let query: String
-    let page: Int
+    let skip: Int
+    let limit: Int
 }

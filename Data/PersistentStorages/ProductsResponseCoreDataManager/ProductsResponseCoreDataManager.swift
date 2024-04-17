@@ -21,10 +21,13 @@ final class ProductsResponseCoreDataManager {
     private func fetchRequest(
         for requestDto: ProductsRequestDTO
     ) -> NSFetchRequest<ProductsRequestEntity> {
+        
+        debugPrint("Whattttt  ", requestDto.skip,"   ", requestDto.limit)
+        
         let request: NSFetchRequest = ProductsRequestEntity.fetchRequest()
         request.predicate = NSPredicate(format: "%K = %@ AND %K = %d",
-                                        #keyPath(ProductsRequestEntity.query), requestDto.query,
-                                        #keyPath(ProductsRequestEntity.page), requestDto.page)
+                                        #keyPath(ProductsRequestEntity.skip), requestDto.skip,
+                                        #keyPath(ProductsRequestEntity.limit), requestDto.limit)
         return request
     }
 
@@ -46,12 +49,36 @@ final class ProductsResponseCoreDataManager {
 
 extension ProductsResponseCoreDataManager: ProductsCoreDataManagerProtocol {
     
-    func getResponse(for request: ProductsRequestDTO, completion: @escaping (Result<ProductResponseDTO?, Error>) -> Void) {
-        completion(.success(nil))
+    func getResponse(for requestDto: ProductsRequestDTO, completion: @escaping (Result<ProductResponseDTO?, Error>) -> Void) {
+        
+        coreDataStorage.performBackgroundTask { context in
+            do {
+                let fetchRequest = self.fetchRequest(for: requestDto)
+                let requestEntity = try context.fetch(fetchRequest).first
+                
+                completion(.success(requestEntity?.productsResponse?.toDTO()))
+            } catch {
+                completion(.failure(CoreDataStorageError.readError(error)))
+            }
+        }
+        //completion(.success(nil))
     }
     
     func save(response: ProductResponseDTO, for requestDto: ProductsRequestDTO) {
         
+        coreDataStorage.performBackgroundTask { context in
+            do {
+                self.deleteResponse(for: requestDto, in: context)
+
+                let requestEntity = requestDto.toEntity(in: context)
+                requestEntity.productsResponse = response.toEntity(in: context)
+
+                try context.save()
+            } catch {
+                // TODO: - Log to Crashlytics
+                debugPrint("CoreDataMoviesResponseStorage Unresolved error \(error), \((error as NSError).userInfo)")
+            }
+        }
     }
     
 

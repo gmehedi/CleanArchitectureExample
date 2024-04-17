@@ -12,7 +12,8 @@ protocol ProductsRepositoryProtocol {
     @discardableResult
     func fetchQuery(
         productsQuery: ProductQuery,
-        page: Int,
+        limit: Int,
+        skip: Int,
         cached: @escaping (ProductResponse?) -> Void,
         completion: @escaping (Result<(ProductResponse?), DataTransferError>) -> Void
     ) -> Cancellable?

@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="23B92" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ImagesEntity" representedClassName="ImagesEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <relationship name="imageRelation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductResponseItemEntity" inverseName="imagesRelation" inverseEntity="ProductResponseItemEntity"/>
+    </entity>
     <entity name="ProductQueryEntity" representedClassName="ProductQueryEntity" syncable="YES" codeGenerationType="class">
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="query" optional="YES" attributeType="String"/>
     </entity>
     <entity name="ProductResponseEntity" representedClassName="ProductResponseEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="limit" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="skip" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="total" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="productRequest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductsRequestEntity" inverseName="productsResponse" inverseEntity="ProductsRequestEntity"/>
+        <relationship name="productResponse" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ProductResponseItemEntity" inverseName="productsResponse" inverseEntity="ProductResponseItemEntity"/>
+    </entity>
+    <entity name="ProductResponseItemEntity" representedClassName="ProductResponseItemEntity" syncable="YES" codeGenerationType="class">
         <attribute name="brand" optional="YES" attributeType="String"/>
         <attribute name="createAt" optional="YES" attributeType="String"/>
         <attribute name="descrip" optional="YES" attributeType="String"/>
@@ -13,18 +24,13 @@
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="thumb" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="productImages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProductsResponseEntity" inverseName="productImage" inverseEntity="ProductsResponseEntity"/>
+        <relationship name="imagesRelation" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ImagesEntity" inverseName="imageRelation" inverseEntity="ImagesEntity"/>
+        <relationship name="productsResponse" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductResponseEntity" inverseName="productResponse" inverseEntity="ProductResponseEntity"/>
     </entity>
     <entity name="ProductsRequestEntity" representedClassName="ProductsRequestEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="page" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="query" optional="YES" attributeType="String"/>
-        <relationship name="productsResponse" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductsResponseEntity" inverseName="productRequest" inverseEntity="ProductsResponseEntity"/>
-    </entity>
-    <entity name="ProductsResponseEntity" representedClassName="ProductsResponseEntity" syncable="YES" codeGenerationType="class">
         <attribute name="limit" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="skeep" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="total" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="productImage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductResponseEntity" inverseName="productImages" inverseEntity="ProductResponseEntity"/>
-        <relationship name="productRequest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductsRequestEntity" inverseName="productsResponse" inverseEntity="ProductsRequestEntity"/>
+        <attribute name="query" optional="YES" attributeType="String"/>
+        <attribute name="skip" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="productsResponse" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductResponseEntity" inverseName="productRequest" inverseEntity="ProductResponseEntity"/>
     </entity>
 </model>

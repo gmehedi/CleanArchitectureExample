@@ -15,9 +15,6 @@ class FetchProductsViewController: UIViewController, Alertable {
     
     var coordinator: FetchProductsFlowCoordinator?
     
-    var products = [ProductItem]()
-    
-    
     static func create(with viewModel: FetchProductsViewModel) -> FetchProductsViewController {
         let fetchProductVC = FetchProductsViewController(nibName: "FetchProductsViewController", bundle: nil)
         fetchProductVC.viewModel = viewModel
@@ -44,46 +41,25 @@ extension FetchProductsViewController {
     
     fileprivate func setupBindings() {
         
-        self.viewModel.result.observe(on: self, observerBlock: { [weak self] result in
-            
-            guard let self = self else {
-                return
-            }
-            
-            switch result {
-            case .success((let productResponse)):
-                //debugPrint("APICALL   22222  ")
-                DispatchQueue.main.async {
-                    self.products = productResponse?.products ?? []
-                    self.productsCollectionView.reloadData()
-                }
-                
-            case .failure(let error):
-                //       debugPrint("APICALL   33333  ")
-                DispatchQueue.main.async {
-                    self.handleFetchError(error: error)
-                }
-                
-            case .none:
-                
-                break
-            }
-            
-        })
-        
-        self.viewModel.cache.observe(on: self, observerBlock: { [weak self] productResponse in
+        self.viewModel.items.observe(on: self, observerBlock: { [weak self] productItems in
             
             guard let self = self else {
                 return
             }
             
             DispatchQueue.main.async {
-                if let product = productResponse {
-                    self.products = productResponse?.products ?? []
-                    self.productsCollectionView.reloadData()
-                }
-               
+                self.productsCollectionView.reloadData()
             }
+            
+        })
+        
+        self.viewModel.error.observe(on: self, observerBlock: { [weak self] error in
+            
+            guard let self = self, let error = error else {
+                return
+            }
+            self.handleFetchError(error: error)
+            
         })
     }
 }
@@ -175,15 +151,22 @@ extension FetchProductsViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //print("Countt  ", self.categories.count)
-        return self.products.count
+        return (self.viewModel.items.value?.count ?? 0)
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        
+        if indexPath.row == (self.viewModel.items.value?.count ?? 0) - 1 {
+            self.viewModel.didLoadNextPage()
+        }
+        
         if let cell = self.productsCollectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.id, for: indexPath) as? ProductCollectionViewCell {
             
-            cell.titleLabel.text = self.products[indexPath.item].title
+            cell.titleLabel.text = self.viewModel.items.value?[indexPath.item].title
+            cell.indexLabel.text = String(self.viewModel.items.value?[indexPath.item].id ?? 0)
+            
             return cell
             
         }else {

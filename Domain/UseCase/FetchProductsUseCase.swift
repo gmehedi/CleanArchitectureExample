@@ -35,9 +35,9 @@ extension FetchProductsUseCase: FetchProductsUseCaseProtocol {
     
     func execute(requestValue: GetProductsUseCaseRquestValue, cached: @escaping (ProductResponse?) -> Void, completion: @escaping (Result<ProductResponse?, DataTransferError>) -> Void) -> Cancellable? {
         
-        let productsQuery = ProductQuery(query: requestValue.query.query)
+        //let productsQuery = ProductQuery(query: requestValue.query.query)
         
-        return self.productsRepositoryProtocol.fetchQuery(productsQuery: requestValue.query, page: requestValue.page, cached: cached, completion: { result in
+        return self.productsRepositoryProtocol.fetchQuery(productsQuery: requestValue.query, limit: requestValue.limit, skip: requestValue.skip, cached: cached, completion: { result in
             
             if case .success = result {
                 self.productsQueriesRepository.saveRecentQuery(query: requestValue.query) { _ in }
@@ -53,5 +53,6 @@ extension FetchProductsUseCase: FetchProductsUseCaseProtocol {
 
 struct GetProductsUseCaseRquestValue {
     let query: ProductQuery
-    let page: Int
+    let limit: Int
+    let skip: Int
 }

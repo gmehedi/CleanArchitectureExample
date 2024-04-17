@@ -26,11 +26,11 @@ final class ProductsRepository {
 
 extension ProductsRepository: ProductsRepositoryProtocol {
     
-    func fetchQuery(productsQuery: ProductQuery, page: Int, cached: @escaping (ProductResponse?) -> Void, completion: @escaping (Result<(ProductResponse?), DataTransferError>) -> Void) -> Cancellable? {
+    func fetchQuery(productsQuery: ProductQuery, limit: Int, skip: Int, cached: @escaping (ProductResponse?) -> Void, completion: @escaping (Result<(ProductResponse?), DataTransferError>) -> Void) -> Cancellable? {
         
         let task = RepositoryTask()
         
-        let requestDTO = ProductsRequestDTO(query: productsQuery.query, page: page)
+        let requestDTO = ProductsRequestDTO(query: productsQuery.query, skip: skip, limit: limit)
         
         self.cacheProductsCoreDataStorage.getResponse(for: requestDTO, completion: { [weak self, backgroundQueue] result in
             
@@ -44,22 +44,20 @@ extension ProductsRepository: ProductsRepositoryProtocol {
             
             guard !task.isCancelled else { return }
             
-            let productsRequest = ProductsRequestDTO(query: productsQuery.query, page: page)
+            let productsRequest = ProductsRequestDTO(query: productsQuery.query, skip: skip, limit: limit)
             let endpoint = APIEndpoints.getProductResponse(with: productsRequest)
            
             task.networkTask = self.dataTransferService.request(
                 with: endpoint,
-                on: self.backgroundQueue
+                on: backgroundQueue
             ) { result in
                 
                 switch result {
                 case .success(let responseDTO):
-                    
                     self.cacheProductsCoreDataStorage.save(response: responseDTO, for: productsRequest)
                     completion(.success(responseDTO.toDomain()))
                     
                 case .failure(let error):
-                    
                     completion(.failure(error))
                 }
             }

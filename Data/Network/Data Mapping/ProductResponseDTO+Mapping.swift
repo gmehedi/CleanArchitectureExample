@@ -15,9 +15,9 @@ import CoreData
 
 
 struct ProductResponseDTO: Codable {
-    let total: Int?
-    let skip: Int?
-    let limit: Int?
+    let total: Int32?
+    let skip: Int32?
+    let limit: Int32?
     let products: [ProductItemDTO]?
 }
 
@@ -31,8 +31,11 @@ struct ProductItemDTO: Codable {
     let brand, category: String?
     let thumbnail: String?
     let images: [String]?
-    
 }
+
+//struct ImageURLDTO: Codable {
+//    let imageURL: String?
+//}
 
 
 //extension ProductsResponseDTO {
@@ -49,13 +52,31 @@ extension ProductResponseDTO {
     func toDomain() -> ProductResponse {
         return .init(total: self.total ?? 0, skip: self.skip ?? 0, limit: self.limit ?? 0, products: self.products?.map({$0.toDomain()}) ?? [] )
     }
+    
+}
+
+extension ProductResponseDTO {
+    
+    func toEntity(in context: NSManagedObjectContext) -> ProductResponseEntity {
+        let entity: ProductResponseEntity = .init(context: context)
+        entity.limit = Int32(limit ?? 0)
+        entity.total = Int32(total ?? 0)
+        entity.skip = Int32(skip ?? 0)
+       
+        self.products?.forEach {
+            entity.addToProductResponse($0.toEntity(context: context))
+        }
+        return entity
+    }
 }
 
 extension ProductItemDTO {
     
     func toDomain() -> ProductItem {
 
-        return .init(id: Int32(self.id ?? 0), 
+        let imageURls = self.images?.map({$0.toDomain()}) ?? []
+        
+        return .init(id: Int32(self.id ?? 0),
                      title: self.title ?? "",
                      description: self.description ?? "",
                      price: Int32(self.price ?? 0),
@@ -65,12 +86,13 @@ extension ProductItemDTO {
                      brand: self.brand ?? "",
                      category: self.category ?? "",
                      thumbnail: self.thumbnail ?? "",
-                     images: self.images ?? [])
+                     images: imageURls)
     }
     
-    func toEntity(context: NSManagedObjectContext) -> ProductResponseEntity {
+    
+    func toEntity(context: NSManagedObjectContext) -> ProductResponseItemEntity {
         
-        let entity: ProductResponseEntity = .init(context: context)
+        let entity: ProductResponseItemEntity = .init(context: context)
 
         entity.id = Int32(self.id ?? 0)
         entity.createAt = self.getDate()
@@ -80,8 +102,10 @@ extension ProductItemDTO {
         entity.price = Double(self.price ?? 0)
         entity.discountPrice = self.discountPercentage ?? 0.0
         entity.thumb = self.thumbnail ?? ""
-       // entity.productsToimages = NSSet(object: self.images)
         
+        self.images?.forEach {
+            entity.addToImagesRelation($0.toEntity(context: context))
+        }
         return entity
     }
     
@@ -91,4 +115,15 @@ extension ProductItemDTO {
     }
 }
 
-
+extension String {
+    
+    func toDomain() -> String {
+        return self
+    }
+    
+    func toEntity(context: NSManagedObjectContext) -> ImagesEntity {
+        let entity: ImagesEntity = .init(context: context)
+        entity.image = self
+        return entity
+    }
+}

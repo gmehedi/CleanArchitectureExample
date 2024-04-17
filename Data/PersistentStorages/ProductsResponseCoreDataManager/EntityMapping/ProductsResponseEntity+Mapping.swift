@@ -8,37 +8,45 @@
 import Foundation
 import CoreData
 
-
 extension ProductResponseEntity {
     
+    func toDTO() -> ProductResponseDTO {
+        
+        return .init(total: self.total, skip: self.skip , limit: self.limit , products: self.productResponse?.array.map({ ($0 as! ProductResponseItemEntity).toDTO() }))
+    }
+}
+
+extension ProductResponseItemEntity {
+    
     func toDomain() -> ProductItem {
-        
-        var images = [String]()
-        
-        self.productImages?.forEach({ item in
-            
-            images.append(item as! String)
-        })
-        
+       
+        let images =  self.imagesRelation?.array.map({($0 as! String)}) ?? []
+      
         return .init(id: id, title: title!, description: description, price: Int32(price), discountPercentage: discountPrice, rating: 5.0, stock: 100, brand: brand ?? "Apple", category: "", thumbnail: thumb!, images: images)
     }
 }
 
 
-extension ProductResponseEntity {
+extension ProductResponseItemEntity {
     
     func toDTO() -> ProductItemDTO {
+       // vcbvcbcvbcvbcvbvc
+        let images =  self.imagesRelation?.array.map({($0 as! ImagesEntity)}) ?? []
         
-        var images = [String]()
-        
-        self.productImages?.forEach({ item in
-            
-            images.append(item as! String)
-        })
-        
-        return .init(id: Int(id), title: title!, description: description, price: Int(price), discountPercentage: discountPrice, rating: 5.0, stock: 100, brand: brand ?? "Apple", category: "", thumbnail: thumb!, images: images)
+        return .init(id: Int(id), title: title!, description: description, price: Int(price), discountPercentage: discountPrice, rating: 5.0, stock: 100, brand: brand ?? "Apple", category: "", thumbnail: thumb!, images: images.map({$0.image ?? ""}))
     }
     
+}
+
+extension ProductsRequestDTO {
+    
+    func toEntity(in context: NSManagedObjectContext) -> ProductsRequestEntity {
+        let entity: ProductsRequestEntity = .init(context: context)
+        entity.query = query
+        entity.limit = Int32(limit)
+        entity.skip = Int32(skip)
+        return entity
+    }
 }
 
 
