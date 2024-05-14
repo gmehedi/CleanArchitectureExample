@@ -10,12 +10,12 @@ import Foundation
 final class ProductsRepository {
     
     private let dataTransferService: DataTransferService
-    private let cacheProductsCoreDataStorage: ProductsCoreDataManagerProtocol //Cache
+    private let cacheProductsCoreDataStorage: ProductsResponseCoreDataManagerProtocol //Cache
     private let backgroundQueue: DataTransferDispatchQueue
     
     init(
         dataTransferService: DataTransferService,
-        cacheProductsCoreDataStorage: ProductsCoreDataManagerProtocol,
+        cacheProductsCoreDataStorage: ProductsResponseCoreDataManagerProtocol,
         backgroundQueue: DataTransferDispatchQueue = DispatchQueue.global(qos: .userInitiated)
     ) {
         self.dataTransferService = dataTransferService

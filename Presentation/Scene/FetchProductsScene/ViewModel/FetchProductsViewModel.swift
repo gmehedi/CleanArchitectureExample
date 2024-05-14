@@ -102,17 +102,22 @@ extension FetchProductsViewModel {
             return
         }
         
+        debugPrint("PageNN    ", self.items.value?.count,"  ", pages.count )
+        
         self.limit = Int(productResponse.limit)
         self.total = Int(productResponse.total)
         
         pages = pages
-            .filter { $0.skip != productResponse.skip }
+            .filter {
+                debugPrint("PageNN   Midd  ", $0.skip ,"    ", productResponse.skip )
+                return $0.skip != productResponse.skip
+            }
             + [productResponse]
         
        
         self.items.value = pages.productItems
         
-        debugPrint("PageNN    ", self.limit,"  ::  ",  self.skip )
+        debugPrint("PageNN   END  ", self.items.value?.count,"  ", pages.productItems.count )
     }
     
 }

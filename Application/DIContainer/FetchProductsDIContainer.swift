@@ -24,10 +24,10 @@ final class FetchProductsDIContainer {
     }
     
     // MARK: - Persistent Storage
-    lazy var fetchProductsResponseCache: ProductsQueriesRepositoryProtocol = ProductsQueriesCoreDataManager(coreDataStorage: CoreDataStorage.shared, maxStorageLimit: 100)
+    lazy var fetchProductsResponseCache: ProductsResponseCoreDataManager = ProductsResponseCoreDataManager(coreDataStorage:  CoreDataStorage.shared)
     
     // MARK: - Persistent Storage
-    lazy var productsResponseCoreDataManager: ProductsCoreDataManagerProtocol = ProductsResponseCoreDataManager(coreDataStorage: CoreDataStorage.shared)
+    lazy var productsResponseCoreDataManager: ProductsResponseCoreDataManagerProtocol = ProductsResponseCoreDataManager(coreDataStorage: CoreDataStorage.shared)
     
     
     // MARK: - Persistent Storage
@@ -42,7 +42,7 @@ final class FetchProductsDIContainer {
     
     // MARK: - Make Product Use Case
     func makeFetchProductsUseCase() -> FetchProductsUseCase {
-        return FetchProductsUseCase(productsRepositoryProtocol: getProductsRepositoryProtocol(), productsQueriesRepository: self.fetchProductsResponseCache)
+        return FetchProductsUseCase(productsRepositoryProtocol: getProductsRepositoryProtocol(), productsResponseCoreDataManager: self.fetchProductsResponseCache)
     }
     
     // MARK: - Make Chatting View Model

@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-protocol ProductsCoreDataManagerProtocol {
+protocol ProductsResponseCoreDataManagerProtocol {
     func getResponse(
         for request: ProductsRequestDTO,
         completion: @escaping (Result<ProductResponseDTO?, Error>) -> Void

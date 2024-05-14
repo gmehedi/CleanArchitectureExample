@@ -19,14 +19,14 @@ protocol FetchProductsUseCaseProtocol {
 class FetchProductsUseCase {
     
     private let productsRepositoryProtocol: ProductsRepositoryProtocol
-    private let productsQueriesRepository: ProductsQueriesRepositoryProtocol
+    private let productsResponseCoreDataManager: ProductsResponseCoreDataManagerProtocol
     
     init(
         productsRepositoryProtocol: ProductsRepositoryProtocol,
-        productsQueriesRepository: ProductsQueriesRepositoryProtocol
+        productsResponseCoreDataManager: ProductsResponseCoreDataManagerProtocol
     ) {
         self.productsRepositoryProtocol = productsRepositoryProtocol
-        self.productsQueriesRepository = productsQueriesRepository
+        self.productsResponseCoreDataManager = productsResponseCoreDataManager
     }
 }
 
@@ -40,10 +40,8 @@ extension FetchProductsUseCase: FetchProductsUseCaseProtocol {
         return self.productsRepositoryProtocol.fetchQuery(productsQuery: requestValue.query, limit: requestValue.limit, skip: requestValue.skip, cached: cached, completion: { result in
             
             if case .success = result {
-                self.productsQueriesRepository.saveRecentQuery(query: requestValue.query) { _ in }
+                completion(result)
             }
-
-            completion(result)
             
         })
         

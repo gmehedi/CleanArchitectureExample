@@ -25,9 +25,10 @@ final class ProductsResponseCoreDataManager {
         debugPrint("Whattttt  ", requestDto.skip,"   ", requestDto.limit)
         
         let request: NSFetchRequest = ProductsRequestEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "%K = %@ AND %K = %d",
-                                        #keyPath(ProductsRequestEntity.skip), requestDto.skip,
-                                        #keyPath(ProductsRequestEntity.limit), requestDto.limit)
+        
+       // request.predicate = NSPredicate(format: "%K = %@ AND %K = %d",
+//                                        #keyPath(ProductsRequestEntity.skip), requestDto.skip,
+//                                        #keyPath(ProductsRequestEntity.limit), requestDto.limit)
         return request
     }
 
@@ -47,7 +48,7 @@ final class ProductsResponseCoreDataManager {
     }
 }
 
-extension ProductsResponseCoreDataManager: ProductsCoreDataManagerProtocol {
+extension ProductsResponseCoreDataManager: ProductsResponseCoreDataManagerProtocol {
     
     func getResponse(for requestDto: ProductsRequestDTO, completion: @escaping (Result<ProductResponseDTO?, Error>) -> Void) {
         
