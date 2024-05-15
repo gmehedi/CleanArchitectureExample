@@ -97,7 +97,7 @@ extension FetchProductsViewModel {
 
     func appenedProducts(productResponse: ProductResponse?) {
         
-        guard let productResponse = productResponse else {
+        guard let productResponse = productResponse, !productResponse.products.isEmpty else {
             self.error.value = .noResponse
             return
         }
@@ -111,13 +111,18 @@ extension FetchProductsViewModel {
             .filter {
                 debugPrint("PageNN   Midd  ", $0.skip ,"    ", productResponse.skip )
                 return $0.skip != productResponse.skip
-            }
-            + [productResponse]
+            } + [productResponse]
         
        
-        self.items.value = pages.productItems
+        self.items.value = pages.productItems.sorted(by: {$0.id < $1.id})
         
-        debugPrint("PageNN   END  ", self.items.value?.count,"  ", pages.productItems.count )
+        debugPrint("PageNN   END  ", self.items.value?.count,"  ", pages.productItems.count ,"  ", pages.count,"   ",  pages.productItems.count)
+        
+        var i = 0
+        for pr in pages {
+            debugPrint("PageNN   PRRRR  ",pr.products.count,"   ", i,"  ", pr.products,"  ", pr.limit)
+            i += 1
+        }
     }
     
 }

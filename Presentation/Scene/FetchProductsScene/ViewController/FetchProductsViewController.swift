@@ -58,8 +58,10 @@ extension FetchProductsViewController {
             guard let self = self, let error = error else {
                 return
             }
-            self.handleFetchError(error: error)
             
+            DispatchQueue.main.async {
+                self.handleFetchError(error: error)
+            }
         })
     }
 }
