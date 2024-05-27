@@ -153,7 +153,7 @@ extension HomeViewController {
         
         switch action {
         case .searchProduct:
-            
+            self.coordinator?.goToSearchProductsViewController()
             break
         case .getProduct:
             self.coordinator?.goToFetchProductsViewController()

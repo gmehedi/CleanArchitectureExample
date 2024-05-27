@@ -22,6 +22,20 @@ struct APIEndpoints {
         )
         //bodyParametersEncodable: productsRequestDTO
     }
+    
+    static func getSearchProductResponse(with productsRequestDTO: ProductsRequestDTO) -> Endpoint<ProductResponseDTO> { //Decode type
+        
+        return Endpoint(
+            path: "products/search",
+            method: .get,
+            headerParameters: [
+                "Accept": "application/json",
+                "Content-Type" : "application/json"
+            ],
+            queryParametersEncodable: productsRequestDTO
+        )
+        //bodyParametersEncodable: productsRequestDTO
+    }
 
 }
 

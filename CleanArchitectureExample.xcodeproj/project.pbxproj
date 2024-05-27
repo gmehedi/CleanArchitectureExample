@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B27A5A9B2C048288003CC2AB /* SearchProductsDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A5A9A2C048288003CC2AB /* SearchProductsDIContainer.swift */; };
+		B27A5A9D2C0483AE003CC2AB /* SearchProductsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A5A9C2C0483AE003CC2AB /* SearchProductsUseCase.swift */; };
+		B27A5AA22C0487EC003CC2AB /* SearchProductsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A5AA12C0487EC003CC2AB /* SearchProductsFlowCoordinator.swift */; };
+		B27A5AA42C04A18D003CC2AB /* SearchProductsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A5AA32C04A18D003CC2AB /* SearchProductsRepository.swift */; };
 		B280543D2B67618300EB82EC /* ProductsResponseCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280543C2B67618300EB82EC /* ProductsResponseCoreDataManager.swift */; };
 		B28054502B67A6E400EB82EC /* ProductQueryEntity+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = B280544F2B67A6E400EB82EC /* ProductQueryEntity+Mapping.swift */; };
 		B28054522B67AB9600EB82EC /* FetchRecentProductQueriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28054512B67AB9600EB82EC /* FetchRecentProductQueriesUseCase.swift */; };
@@ -103,6 +107,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B27A5A9A2C048288003CC2AB /* SearchProductsDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductsDIContainer.swift; sourceTree = "<group>"; };
+		B27A5A9C2C0483AE003CC2AB /* SearchProductsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductsUseCase.swift; sourceTree = "<group>"; };
+		B27A5AA12C0487EC003CC2AB /* SearchProductsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductsFlowCoordinator.swift; sourceTree = "<group>"; };
+		B27A5AA32C04A18D003CC2AB /* SearchProductsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductsRepository.swift; sourceTree = "<group>"; };
 		B280543C2B67618300EB82EC /* ProductsResponseCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponseCoreDataManager.swift; sourceTree = "<group>"; };
 		B280544F2B67A6E400EB82EC /* ProductQueryEntity+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductQueryEntity+Mapping.swift"; sourceTree = "<group>"; };
 		B28054512B67AB9600EB82EC /* FetchRecentProductQueriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRecentProductQueriesUseCase.swift; sourceTree = "<group>"; };
@@ -210,6 +218,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B27A5A9E2C0487B6003CC2AB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B2E943142BF46E330012F99D /* SearchProductsViewController.swift */,
+				B2E943152BF46E330012F99D /* SearchProductsViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B27A5A9F2C0487C2003CC2AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B2E943182BF46E4A0012F99D /* SearchProductsViewModel.swift */,
+			);
+			name = ViewModel;
+			path = ViewModel/ViewModel;
+			sourceTree = "<group>";
+		};
+		B27A5AA02C0487DE003CC2AB /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				B27A5AA12C0487EC003CC2AB /* SearchProductsFlowCoordinator.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
 		B280543E2B67618D00EB82EC /* ProductsResponseCoreDataManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,19 +264,11 @@
 		B2E9430E2BF46DF00012F99D /* SearchProductsScene */ = {
 			isa = PBXGroup;
 			children = (
-				B2E943132BF46E150012F99D /* ViewModel */,
-				B2E943142BF46E330012F99D /* SearchProductsViewController.swift */,
-				B2E943152BF46E330012F99D /* SearchProductsViewController.xib */,
+				B27A5AA02C0487DE003CC2AB /* Flows */,
+				B27A5A9F2C0487C2003CC2AB /* ViewModel */,
+				B27A5A9E2C0487B6003CC2AB /* ViewController */,
 			);
 			path = SearchProductsScene;
-			sourceTree = "<group>";
-		};
-		B2E943132BF46E150012F99D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				B2E943182BF46E4A0012F99D /* SearchProductsViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CE9E0C942A809B8D002B737F = {
@@ -352,6 +378,7 @@
 				CE9E0CE32A809BB5002B737F /* FetchProductsUseCase.swift */,
 				B28054512B67AB9600EB82EC /* FetchRecentProductQueriesUseCase.swift */,
 				B28054552B67B33900EB82EC /* UseCase.swift */,
+				B27A5A9C2C0483AE003CC2AB /* SearchProductsUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -572,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				CE9E0D162A809BB5002B737F /* ProductsRepository.swift */,
+				B27A5AA32C04A18D003CC2AB /* SearchProductsRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -651,6 +679,7 @@
 				CE9E0D2E2A809BB6002B737F /* AppDIContainer.swift */,
 				CE9E0D2F2A809BB6002B737F /* FetchProductsDIContainer.swift */,
 				CE9E0D302A809BB6002B737F /* HomeSceneDIContainer.swift */,
+				B27A5A9A2C048288003CC2AB /* SearchProductsDIContainer.swift */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -846,6 +875,7 @@
 				CE9E0D5C2A809BB6002B737F /* HomeViewController.swift in Sources */,
 				CE9E0D542A809BB6002B737F /* FetchProductsViewController.swift in Sources */,
 				CE9E0D4C2A809BB6002B737F /* ProductsRepositoryProtocol.swift in Sources */,
+				B27A5A9B2C048288003CC2AB /* SearchProductsDIContainer.swift in Sources */,
 				CE9E0D482A809BB6002B737F /* ProductQuery.swift in Sources */,
 				CE9E0D672A809BB6002B737F /* CoreDataStorage.xcdatamodeld in Sources */,
 				CE9E0D582A809BB6002B737F /* SplashFlowCoordinator.swift in Sources */,
@@ -861,6 +891,7 @@
 				CE9E0CAB2A809B8D002B737F /* CleanArchitectureExample.xcdatamodeld in Sources */,
 				CE9E0D472A809BB6002B737F /* NetworkConfig.swift in Sources */,
 				CE9E0D6D2A809BB6002B737F /* AppFlowCoordinator.swift in Sources */,
+				B27A5AA42C04A18D003CC2AB /* SearchProductsRepository.swift in Sources */,
 				CE9E0D502A809BB6002B737F /* LoadingView.swift in Sources */,
 				CE9E0D4F2A809BB6002B737F /* Alertable.swift in Sources */,
 				CE9E0D682A809BB6002B737F /* CoreDataStorage.swift in Sources */,
@@ -874,6 +905,7 @@
 				CE9E0D562A809BB6002B737F /* FetchProductsFlowCoordinator.swift in Sources */,
 				CE9E0D812A809BB6002B737F /* Cancellable.swift in Sources */,
 				CE9E0D7D2A809BB6002B737F /* UIViewController+Extension.swift in Sources */,
+				B27A5A9D2C0483AE003CC2AB /* SearchProductsUseCase.swift in Sources */,
 				B28054522B67AB9600EB82EC /* FetchRecentProductQueriesUseCase.swift in Sources */,
 				CE9E0D802A809BB6002B737F /* ConnectionError.swift in Sources */,
 				CE9E0D6A2A809BB6002B737F /* ProductsQueriesCoreDataManager.swift in Sources */,
@@ -889,6 +921,7 @@
 				CE9E0D572A809BB6002B737F /* SplashViewController.swift in Sources */,
 				CE9E0D5E2A809BB6002B737F /* HomeCollectionViewCell.swift in Sources */,
 				B280543D2B67618300EB82EC /* ProductsResponseCoreDataManager.swift in Sources */,
+				B27A5AA22C0487EC003CC2AB /* SearchProductsFlowCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

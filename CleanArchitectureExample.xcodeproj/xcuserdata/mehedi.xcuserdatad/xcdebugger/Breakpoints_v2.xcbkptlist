@@ -23,32 +23,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5E835F9B-EBE0-4A29-85CB-D3F934C6E41E"
+            uuid = "6054A53A-5274-4AB4-B77E-DB88D5677E85"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Presentation/Scene/FetchProductsScene/ViewModel/FetchProductsViewModel.swift"
+            filePath = "Presentation/Scene/SearchProductsScene/ViewModel/ViewModel/SearchProductsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "fetchProducts()"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "searchProducts(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9100AC1E-034B-4EBB-8C2E-1F16DBA8CC3B"
+            uuid = "C77306D6-8E8F-4378-B5E7-24C1093557F4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Data/PersistentStorages/ProductsResponseCoreDataManager/ProductsResponseCoreDataManager.swift"
+            filePath = "Presentation/Scene/SearchProductsScene/ViewModel/ViewModel/SearchProductsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "save(response:for:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "searchProducts(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -42,7 +42,7 @@ extension ProductsRequestDTO {
     
     func toEntity(in context: NSManagedObjectContext) -> ProductsRequestEntity {
         let entity: ProductsRequestEntity = .init(context: context)
-        entity.query = query
+        entity.query = q
         entity.limit = Int32(limit)
         entity.skip = Int32(skip)
         return entity

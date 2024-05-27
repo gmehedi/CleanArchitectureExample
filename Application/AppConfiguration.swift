@@ -6,5 +6,4 @@ final class AppConfiguration {
     
     let productsApiBaseURL: String = "https://dummyjson.com"
     
-    
 }

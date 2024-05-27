@@ -1,22 +1,24 @@
 //
-//  FetchProductsViewController.swift
-//  APIDemo
+//  SearchProductsViewController.swift
+//  CleanArchitectureExample
 //
-//  Created by M M Mehedi Hasan on 2023/08/06.
+//  Created by Mehedi on 15/5/24.
 //
 
 import UIKit
 
-class FetchProductsViewController: UIViewController, Alertable {
+class SearchProductsViewController: UIViewController, Alertable {
 
-    var viewModel: FetchProductsViewModel!
+    var viewModel: SearchProductsViewModel!
+    
+    @IBOutlet weak var searchView: UISearchBar!
+    var currQuery = "iphone"
     
     @IBOutlet weak var productsCollectionView: UICollectionView!
+    var coordinator: SearchProductsFlowCoordinator?
     
-    var coordinator: FetchProductsFlowCoordinator?
-    
-    static func create(with viewModel: FetchProductsViewModel) -> FetchProductsViewController {
-        let fetchProductVC = FetchProductsViewController(nibName: "FetchProductsViewController", bundle: nil)
+    static func create(with viewModel: SearchProductsViewModel) -> SearchProductsViewController {
+        let fetchProductVC = SearchProductsViewController(nibName: "SearchProductsViewController", bundle: nil)
         fetchProductVC.viewModel = viewModel
         return fetchProductVC
     }
@@ -24,20 +26,25 @@ class FetchProductsViewController: UIViewController, Alertable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Do any additional setup after loading the view.
+        
         self.setupCollectionView()
         
         self.setupBindings()
         // Do any additional setup after loading the view.
-        self.viewModel.fetchProducts()
+        self.viewModel.searchProducts(with: self.currQuery)
+        self.searchView.delegate = self
+        
     }
-    
+
     @IBAction func tappedOnBackButton(_ sender: Any) {
         self.coordinator?.dismissVC()
     }
-
+    
 }
 
-extension FetchProductsViewController {
+
+extension SearchProductsViewController {
     
     fileprivate func setupBindings() {
         
@@ -69,7 +76,7 @@ extension FetchProductsViewController {
 
 //MARK: - Action and Show Fetching Data
 
-extension FetchProductsViewController {
+extension SearchProductsViewController {
     
     private func handleFetchError(error: DataTransferError) {
         
@@ -105,7 +112,7 @@ extension FetchProductsViewController {
 
 
 //MARK: CollectionView
-extension FetchProductsViewController {
+extension SearchProductsViewController {
     
     fileprivate func setupCollectionView() {
         
@@ -149,7 +156,7 @@ extension FetchProductsViewController {
 }
 
 //MARK: CollectionView Data Source and Delegate
-extension FetchProductsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension SearchProductsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //print("Countt  ", self.categories.count)
@@ -161,7 +168,7 @@ extension FetchProductsViewController: UICollectionViewDelegate, UICollectionVie
         
         
         if indexPath.row == (self.viewModel.items.value?.count ?? 0) - 1 {
-            self.viewModel.didLoadNextPage()
+            self.viewModel.didLoadNextPage(with: self.currQuery)
         }
         
         if let cell = self.productsCollectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.id, for: indexPath) as? ProductCollectionViewCell {
@@ -192,4 +199,16 @@ extension FetchProductsViewController: UICollectionViewDelegate, UICollectionVie
         return newSize
     }
     
+}
+
+extension SearchProductsViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            self.currQuery = text
+            debugPrint("New Query  ", text)
+            self.viewModel.searchNewProducts(with: self.currQuery)
+            self.searchView.resignFirstResponder()
+        }
+    }
 }

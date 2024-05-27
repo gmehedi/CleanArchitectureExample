@@ -97,6 +97,7 @@ extension DefaultNetworkService: NetworkService {
     ) -> NetworkCancellable? {
         do {
             let urlRequest = try endpoint.urlRequest(with: config)
+            debugPrint("Request  URL  ", urlRequest.url,"  ", endpoint.path,"  ")
             return request(request: urlRequest, completion: completion)
         } catch {
             completion(.failure(.urlGeneration))
@@ -105,6 +106,9 @@ extension DefaultNetworkService: NetworkService {
     }
 }
 
+//https://dummyjson.com/products/search?q=phone
+//https://dummyjson.com/products?limit=30&query=iphone&skip=0&language=en-US
+//https://dummyjson.com/products?limit=30&skip=0&query=&language=en-US
 // MARK: - Default Network Session Manager
 // Note: If authorization is needed NetworkSessionManager can be implemented by using,
 // for example, Alamofire SessionManager with its RequestAdapter and RequestRetrier.

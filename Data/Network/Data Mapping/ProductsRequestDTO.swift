@@ -8,7 +8,7 @@
 import Foundation
 
 struct ProductsRequestDTO: Encodable {
-    let query: String
+    let q: String
     let skip: Int
     let limit: Int
 }

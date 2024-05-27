@@ -45,5 +45,12 @@ final class AppDIContainer {
         return FetchProductsDIContainer(dependencies: dependencies)
     }
     
+    // MARK: - DIContainers of scenes
+    func makeSearchProductsSceneDIContainer() -> SearchProductsDIContainer {
+        
+        let dependencies = SearchProductsDIContainer.Dependencies(apiDataTransferService: productAPIDataTransferService)
+        return SearchProductsDIContainer(dependencies: dependencies)
+    }
+    
 }
 

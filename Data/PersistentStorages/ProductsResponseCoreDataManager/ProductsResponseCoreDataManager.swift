@@ -32,12 +32,16 @@ final class ProductsResponseCoreDataManager {
            var predicates: [NSPredicate] = []
            
            if let skipKeyPath = #keyPath(ProductsRequestEntity.skip) as String?,
-              let limitKeyPath = #keyPath(ProductsRequestEntity.limit) as String? {
+              let limitKeyPath = #keyPath(ProductsRequestEntity.limit) as String?,
+              let queryKeyPath = #keyPath(ProductsRequestEntity.query) as String? {
+               
                let skipPredicate = NSPredicate(format: "%K = %@", skipKeyPath, NSNumber(value: requestDto.skip))
                let limitPredicate = NSPredicate(format: "%K = %d", limitKeyPath, requestDto.limit)
+               let queryPredicate = NSPredicate(format: "%K = %d", queryKeyPath, requestDto.q)
                
                predicates.append(skipPredicate)
                predicates.append(limitPredicate)
+               predicates.append(queryPredicate)
            }
            
            // Combine predicates using AND operator
