@@ -25,7 +25,7 @@ struct ProductResponseDTO: Codable {
 struct ProductItemDTO: Codable {
     let id: Int?
     let title, description: String?
-    let price: Int?
+    let price: Double?
     let discountPercentage, rating: Double?
     let stock: Int?
     let brand, category: String?
@@ -75,11 +75,10 @@ extension ProductItemDTO {
     func toDomain() -> ProductItem {
 
         let imageURls = self.images?.map({$0.toDomain()}) ?? []
-        
         return .init(id: Int32(self.id ?? 0),
                      title: self.title ?? "",
                      description: self.description ?? "",
-                     price: Int32(self.price ?? 0),
+                     price: self.price ?? 0.0,
                      discountPercentage: self.discountPercentage ?? 0.0,
                      rating: self.rating ?? 1.0,
                      stock: self.stock ?? 1,

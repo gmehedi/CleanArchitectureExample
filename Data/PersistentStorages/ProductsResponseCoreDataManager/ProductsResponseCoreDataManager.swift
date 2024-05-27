@@ -22,14 +22,30 @@ final class ProductsResponseCoreDataManager {
         for requestDto: ProductsRequestDTO
     ) -> NSFetchRequest<ProductsRequestEntity> {
         
-        debugPrint("Whattttt  ", requestDto.skip,"   ", requestDto.limit)
-        
-        let request: NSFetchRequest = ProductsRequestEntity.fetchRequest()
-        
-       // request.predicate = NSPredicate(format: "%K = %@ AND %K = %d",
-//                                        #keyPath(ProductsRequestEntity.skip), requestDto.skip,
-//                                        #keyPath(ProductsRequestEntity.limit), requestDto.limit)
-        return request
+        // Print debug information
+           debugPrint("Whattttt  ", requestDto.skip, "   ", requestDto.limit)
+           
+           // Create a fetch request for the ProductsRequestEntity entity
+           let request: NSFetchRequest<ProductsRequestEntity> = ProductsRequestEntity.fetchRequest()
+           
+           // Construct the predicate safely
+           var predicates: [NSPredicate] = []
+           
+           if let skipKeyPath = #keyPath(ProductsRequestEntity.skip) as String?,
+              let limitKeyPath = #keyPath(ProductsRequestEntity.limit) as String? {
+               let skipPredicate = NSPredicate(format: "%K = %@", skipKeyPath, NSNumber(value: requestDto.skip))
+               let limitPredicate = NSPredicate(format: "%K = %d", limitKeyPath, requestDto.limit)
+               
+               predicates.append(skipPredicate)
+               predicates.append(limitPredicate)
+           }
+           
+           // Combine predicates using AND operator
+           if !predicates.isEmpty {
+               request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+           }
+           
+           return request
     }
 
     private func deleteResponse(

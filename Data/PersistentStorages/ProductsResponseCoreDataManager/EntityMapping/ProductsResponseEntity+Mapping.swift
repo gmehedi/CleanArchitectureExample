@@ -22,7 +22,7 @@ extension ProductResponseItemEntity {
        
         let images =  self.imagesRelation?.array.map({($0 as! String)}) ?? []
       
-        return .init(id: id, title: title!, description: description, price: Int32(price), discountPercentage: discountPrice, rating: 5.0, stock: 100, brand: brand ?? "Apple", category: "", thumbnail: thumb!, images: images)
+        return .init(id: id, title: title!, description: description, price: Double(price), discountPercentage: discountPrice, rating: 5.0, stock: 100, brand: brand ?? "Apple", category: "", thumbnail: thumb!, images: images)
     }
 }
 
@@ -33,7 +33,7 @@ extension ProductResponseItemEntity {
        // vcbvcbcvbcvbcvbvc
         let images =  self.imagesRelation?.array.map({($0 as! ImagesEntity)}) ?? []
         
-        return .init(id: Int(id), title: title!, description: description, price: Int(price), discountPercentage: discountPrice, rating: 5.0, stock: 100, brand: brand ?? "Apple", category: "", thumbnail: thumb!, images: images.map({$0.image ?? ""}))
+        return .init(id: Int(id), title: title!, description: description, price: price, discountPercentage: discountPrice, rating: 5.0, stock: 100, brand: brand ?? "Apple", category: "", thumbnail: thumb!, images: images.map({$0.image ?? ""}))
     }
     
 }

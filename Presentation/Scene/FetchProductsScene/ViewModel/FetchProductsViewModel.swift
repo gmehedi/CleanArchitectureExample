@@ -19,11 +19,6 @@ import UIKit
 
 class FetchProductsViewModel {
    
-//    var currentPage: Int = 0
-//    var totalPageCount: Int = 1
-//    var hasMorePages: Bool { currentPage < totalPageCount }
-//    var nextPage: Int { hasMorePages ? currentPage + 1 : currentPage }
-    
     var skip: Int = 0
     var limit: Int = 30
     var total: Int = 0
@@ -31,10 +26,7 @@ class FetchProductsViewModel {
     public var error: Observable<DataTransferError?> = Observable(nil)
 
     public var items: Observable<[ProductItem]?> = Observable(nil) //so we can calculate view model items on demand:
-    ///
-    //var result: Observable< (Result<ProductResponse?, DataTransferError>)? > = Observable(nil)
-        //  var cache: Observable< ProductResponse? > = Observable(nil)
-    
+   
     private var pages: [ProductResponse] = []
     
     let fetchProductsUseCase: FetchProductsUseCase
@@ -102,27 +94,27 @@ extension FetchProductsViewModel {
             return
         }
         
-        debugPrint("PageNN    ", self.items.value?.count,"  ", pages.count )
+        //debugPrint("PageNN    ", self.items.value?.count,"  ", pages.count )
         
         self.limit = Int(productResponse.limit)
         self.total = Int(productResponse.total)
         
         pages = pages
             .filter {
-                debugPrint("PageNN   Midd  ", $0.skip ,"    ", productResponse.skip )
+               // debugPrint("PageNN   Midd  ", $0.skip ,"    ", productResponse.skip )
                 return $0.skip != productResponse.skip
             } + [productResponse]
         
        
         self.items.value = pages.productItems.sorted(by: {$0.id < $1.id})
         
-        debugPrint("PageNN   END  ", self.items.value?.count,"  ", pages.productItems.count ,"  ", pages.count,"   ",  pages.productItems.count)
+        debugPrint("PageNN   END  ", self.limit,"  ",self.skip,"  ", self.total,"  ")
         
-        var i = 0
-        for pr in pages {
-            debugPrint("PageNN   PRRRR  ",pr.products.count,"   ", i,"  ", pr.products,"  ", pr.limit)
-            i += 1
-        }
+//        var i = 0
+//        for pr in pages {
+//            debugPrint("PageNN   PRRRR  MMM  ", pr.products.count,"   ", i,"  ", pr.limit)
+//            i += 1
+//        }
     }
     
 }

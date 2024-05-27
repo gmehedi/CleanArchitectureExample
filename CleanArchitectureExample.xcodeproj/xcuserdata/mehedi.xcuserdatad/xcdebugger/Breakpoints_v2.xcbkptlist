@@ -7,32 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9E5FBF75-0781-474E-849E-24622FD0EDDD"
+            uuid = "F9A4A5D2-3B1A-40C1-8277-7932551F39E6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Presentation/Scene/FetchProductsScene/ViewModel/FetchProductsViewModel.swift"
+            filePath = "Infrastructure/Network/NetworkService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "appenedProducts(productResponse:)"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "request(request:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E0D200D4-8EB5-46F1-85E2-CD69A454BF75"
+            uuid = "5E835F9B-EBE0-4A29-85CB-D3F934C6E41E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Presentation/Scene/FetchProductsScene/ViewModel/FetchProductsViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "appenedProducts(productResponse:)"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "fetchProducts()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9100AC1E-034B-4EBB-8C2E-1F16DBA8CC3B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Data/PersistentStorages/ProductsResponseCoreDataManager/ProductsResponseCoreDataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "save(response:for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
