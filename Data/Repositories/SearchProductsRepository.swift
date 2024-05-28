@@ -24,7 +24,7 @@ final class SearchProductsRepository {
     }
 }
 
-extension SearchProductsRepository: ProductsRepositoryProtocol {
+extension SearchProductsRepository: FetchProductsRepositoryProtocol {
     
     func fetchQuery(productsQuery: ProductQuery, limit: Int, skip: Int, cached: @escaping (ProductResponse?) -> Void, completion: @escaping (Result<(ProductResponse?), DataTransferError>) -> Void) -> Cancellable? {
         
@@ -46,7 +46,7 @@ extension SearchProductsRepository: ProductsRepositoryProtocol {
             debugPrint("Query  ", productsQuery.query,"  ", skip,"  ", limit)
             let productsRequest = ProductsRequestDTO(q: productsQuery.query, skip: skip, limit: limit)
             
-            let endpoint = APIEndpoints.getSearchProductResponse(with: productsRequest)
+            let endpoint = APIEndpoints.getSearchProductsEndpoint(with: productsRequest)
            
             task.networkTask = self.dataTransferService.request(
                 with: endpoint,

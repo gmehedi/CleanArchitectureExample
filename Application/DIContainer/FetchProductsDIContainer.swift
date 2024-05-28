@@ -28,8 +28,8 @@ final class FetchProductsDIContainer: AppDIContainer {
     lazy var productsResponseCoreDataManager: ProductsResponseCoreDataManagerProtocol = ProductsResponseCoreDataManager(coreDataStorage: CoreDataStorage.shared)
 
     // MARK: - Make Products Repository
-    func getProductsRepositoryProtocol() -> ProductsRepository {
-        return ProductsRepository(dataTransferService: self.dependencies.apiDataTransferService, cacheProductsCoreDataStorage: self.productsResponseCoreDataManager)
+    func getProductsRepositoryProtocol() -> FetchProductsRepository {
+        return FetchProductsRepository(dataTransferService: self.dependencies.apiDataTransferService, cacheProductsCoreDataStorage: self.productsResponseCoreDataManager)
     }
     
     // MARK: - Make Product Use Case

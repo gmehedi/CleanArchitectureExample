@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-protocol ProductsRepositoryProtocol {
+protocol FetchProductsRepositoryProtocol {
     @discardableResult
     func fetchQuery(
         productsQuery: ProductQuery,

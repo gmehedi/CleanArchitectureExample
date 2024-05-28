@@ -9,7 +9,8 @@ import Foundation
 
 struct APIEndpoints {
     
-    static func getProductResponse(with productsRequestDTO: ProductsRequestDTO) -> Endpoint<ProductResponseDTO> { //Decode type
+    //MARK: Provide Fetching Products EndPoint
+    static func getFetchProductsEndpoint(with productsRequestDTO: ProductsRequestDTO) -> Endpoint<ProductResponseDTO> { //Decode type
         
         return Endpoint(
             path: "products",
@@ -23,7 +24,8 @@ struct APIEndpoints {
         //bodyParametersEncodable: productsRequestDTO
     }
     
-    static func getSearchProductResponse(with productsRequestDTO: ProductsRequestDTO) -> Endpoint<ProductResponseDTO> { //Decode type
+    //MARK: Provide Fetching Searching Products EndPoint
+    static func getSearchProductsEndpoint(with productsRequestDTO: ProductsRequestDTO) -> Endpoint<ProductResponseDTO> { //Decode type
         
         return Endpoint(
             path: "products/search",
@@ -33,6 +35,22 @@ struct APIEndpoints {
                 "Content-Type" : "application/json"
             ],
             queryParametersEncodable: productsRequestDTO
+        )
+        //bodyParametersEncodable: productsRequestDTO
+    }
+    
+    //MARK: Provide Add Product EndPoint
+    static func getAddProductEndpoint(with productItemDictionary: [String : AnyObject]) -> Endpoint<ProductItemDTO> { //Decode type
+        
+        return Endpoint(
+            path: "products/add",
+            method: .post,
+            headerParameters: [
+                "Accept": "application/json",
+                "Content-Type" : "application/json"
+            ], 
+            bodyParameters: productItemDictionary,
+            bodyEncoding: .jsonSerializationData
         )
         //bodyParametersEncodable: productsRequestDTO
     }

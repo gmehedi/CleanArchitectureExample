@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ProductsRepository {
+final class FetchProductsRepository {
     
     private let dataTransferService: DataTransferService
     private let cacheProductsCoreDataStorage: ProductsResponseCoreDataManagerProtocol //Cache
@@ -24,7 +24,7 @@ final class ProductsRepository {
     }
 }
 
-extension ProductsRepository: ProductsRepositoryProtocol {
+extension FetchProductsRepository: FetchProductsRepositoryProtocol {
     
     func fetchQuery(productsQuery: ProductQuery, limit: Int, skip: Int, cached: @escaping (ProductResponse?) -> Void, completion: @escaping (Result<(ProductResponse?), DataTransferError>) -> Void) -> Cancellable? {
         
@@ -45,7 +45,7 @@ extension ProductsRepository: ProductsRepositoryProtocol {
             guard !task.isCancelled else { return }
             debugPrint("Query  ", productsQuery.query,"  ", skip,"  ", limit)
             let productsRequest = ProductsRequestDTO(q: productsQuery.query, skip: skip, limit: limit)
-            let endpoint = APIEndpoints.getProductResponse(with: productsRequest)
+            let endpoint = APIEndpoints.getFetchProductsEndpoint(with: productsRequest)
            
             task.networkTask = self.dataTransferService.request(
                 with: endpoint,

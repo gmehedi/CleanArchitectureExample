@@ -40,4 +40,40 @@ struct ProductItem: Equatable {
         case images
         //Note: `description` and `discount` are not included here, so they will be ignored.
     }
+    
+    static func getDefaultData(with id: Int32) -> ProductItem {
+        
+        return .init(id: id,
+                     title: "Mehedi",
+                     description: "Mehedi",
+                     price: 100.0,
+                     discountPercentage: 1.0,
+                     rating: 5.0,
+                     stock: 100,
+                     brand: "Mehedi",
+                     category: "Mehedi",
+                     thumbnail: "Mehedi",
+                     images: ["Mehedi"])
+    }
+    
+    func toDictionary() -> [String: AnyObject] {
+        
+        var asDictionary: [String: AnyObject] {
+            let mirror = Mirror(reflecting: self)
+            let dict = Dictionary(uniqueKeysWithValues: mirror.children.lazy.map { (label: String?, value: Any?) -> (String, AnyObject)? in
+                guard let label = label else { return nil }
+                if let valueAsObject = value as? AnyObject {
+                    return (label, valueAsObject)
+                }
+                // If the value is not an AnyObject, it can't be added to the dictionary
+                return nil
+            }.compactMap { $0 })
+            return dict
+        }
+        
+        return asDictionary
+    }
+
 }
+
+

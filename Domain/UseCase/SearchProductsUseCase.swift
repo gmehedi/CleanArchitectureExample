@@ -24,11 +24,11 @@ struct SearchProductsUseCaseRquestValue {
 
 class SearchProductsUseCase {
     
-    private let productsRepositoryProtocol: ProductsRepositoryProtocol
+    private let productsRepositoryProtocol: FetchProductsRepositoryProtocol
     private let productsResponseCoreDataManager: ProductsResponseCoreDataManagerProtocol
     
     init(
-        productsRepositoryProtocol: ProductsRepositoryProtocol,
+        productsRepositoryProtocol: FetchProductsRepositoryProtocol,
         productsResponseCoreDataManager: ProductsResponseCoreDataManagerProtocol
     ) {
         self.productsRepositoryProtocol = productsRepositoryProtocol
