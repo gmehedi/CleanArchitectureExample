@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AddProductUseCaseProtocol {
-    func addNewProduct(completion: @escaping (Result<Bool?, DataTransferError>) -> Void)
+    func addNewProduct(id: Int32, completion: @escaping (Result<Bool?, DataTransferError>) -> Void) -> Cancellable?
 }
 
 class AddProductUseCase {
@@ -25,8 +25,10 @@ class AddProductUseCase {
 
 extension AddProductUseCase: AddProductUseCaseProtocol {
     
-    func addNewProduct(completion: @escaping (Result<Bool?, DataTransferError>) -> Void) {
-        self.addProductsRepositoryProtocol.addNewProduct(productItem: ProductItem.getDefaultData(with: 1), completion: { result in
+    @discardableResult
+    func addNewProduct(id: Int32, completion: @escaping (Result<Bool?, DataTransferError>) -> Void) -> Cancellable? {
+        
+        return self.addProductsRepositoryProtocol.addNewProduct(productItem: ProductItem.getDefaultData(with: id), completion: { result in
             
             switch result {
             case .success(_):

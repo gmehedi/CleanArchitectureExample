@@ -45,7 +45,8 @@ extension HomeSceneDIContainer {
         
         return [
             HomeMenuModel(title: "Get Products", iconName: "getProducts", actionType: .getProduct),
-            HomeMenuModel(title: "Search Products", iconName: "searchProducts", actionType: .searchProduct)
+            HomeMenuModel(title: "Search Products", iconName: "searchProducts", actionType: .searchProduct),
+            HomeMenuModel(title: "Add Product", iconName: "addProduct", actionType: .addProduct)
         ]
     }
     

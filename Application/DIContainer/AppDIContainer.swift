@@ -52,5 +52,11 @@ class AppDIContainer {
         return SearchProductsDIContainer(dependencies: dependencies)
     }
     
+    // MARK: - DIContainers of scenes
+    func makeAddProductSceneDIContainer() -> AddProductDIContainer {
+        let dependencies = AddProductDIContainer.Dependencies(apiDataTransferService: productAPIDataTransferService)
+        return AddProductDIContainer(dependencies: dependencies)
+    }
+    
 }
 

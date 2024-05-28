@@ -8,7 +8,7 @@
 import Foundation
 
 enum HomeActionType: Int {
-    case getProduct = 0, searchProduct
+    case getProduct = 0, searchProduct, addProduct
 }
 
 class HomeMenuModel {

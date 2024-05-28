@@ -10,6 +10,11 @@
 		B2083F352C05A34D00F28115 /* AddProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2083F342C05A34D00F28115 /* AddProductUseCase.swift */; };
 		B2083F372C05A85D00F28115 /* AddProductsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2083F362C05A85D00F28115 /* AddProductsRepositoryProtocol.swift */; };
 		B2083F392C05AB5300F28115 /* AddProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2083F382C05AB5300F28115 /* AddProductRepository.swift */; };
+		B2083F3B2C05BD0A00F28115 /* AddProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2083F3A2C05BD0A00F28115 /* AddProductViewModel.swift */; };
+		B2083F412C05DB7400F28115 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2083F3F2C05DB7400F28115 /* AddProductViewController.swift */; };
+		B2083F422C05DB7400F28115 /* AddProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2083F402C05DB7400F28115 /* AddProductViewController.xib */; };
+		B2083F472C05DBB600F28115 /* AddProductFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2083F462C05DBB600F28115 /* AddProductFlowCoordinator.swift */; };
+		B2083F492C05DBFE00F28115 /* AddProductDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2083F482C05DBFE00F28115 /* AddProductDIContainer.swift */; };
 		B27A5A9B2C048288003CC2AB /* SearchProductsDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A5A9A2C048288003CC2AB /* SearchProductsDIContainer.swift */; };
 		B27A5A9D2C0483AE003CC2AB /* SearchProductsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A5A9C2C0483AE003CC2AB /* SearchProductsUseCase.swift */; };
 		B27A5AA22C0487EC003CC2AB /* SearchProductsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A5AA12C0487EC003CC2AB /* SearchProductsFlowCoordinator.swift */; };
@@ -110,6 +115,11 @@
 		B2083F342C05A34D00F28115 /* AddProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductUseCase.swift; sourceTree = "<group>"; };
 		B2083F362C05A85D00F28115 /* AddProductsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		B2083F382C05AB5300F28115 /* AddProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductRepository.swift; sourceTree = "<group>"; };
+		B2083F3A2C05BD0A00F28115 /* AddProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewModel.swift; sourceTree = "<group>"; };
+		B2083F3F2C05DB7400F28115 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		B2083F402C05DB7400F28115 /* AddProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddProductViewController.xib; sourceTree = "<group>"; };
+		B2083F462C05DBB600F28115 /* AddProductFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductFlowCoordinator.swift; sourceTree = "<group>"; };
+		B2083F482C05DBFE00F28115 /* AddProductDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductDIContainer.swift; sourceTree = "<group>"; };
 		B27A5A9A2C048288003CC2AB /* SearchProductsDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductsDIContainer.swift; sourceTree = "<group>"; };
 		B27A5A9C2C0483AE003CC2AB /* SearchProductsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductsUseCase.swift; sourceTree = "<group>"; };
 		B27A5AA12C0487EC003CC2AB /* SearchProductsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductsFlowCoordinator.swift; sourceTree = "<group>"; };
@@ -218,6 +228,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B2083F3E2C05DB5300F28115 /* AddProductsScene */ = {
+			isa = PBXGroup;
+			children = (
+				B2083F452C05DB8700F28115 /* Flows */,
+				B2083F442C05DB8500F28115 /* ViewModel */,
+				B2083F432C05DB8200F28115 /* ViewController */,
+			);
+			path = AddProductsScene;
+			sourceTree = "<group>";
+		};
+		B2083F432C05DB8200F28115 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B2083F3F2C05DB7400F28115 /* AddProductViewController.swift */,
+				B2083F402C05DB7400F28115 /* AddProductViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B2083F442C05DB8500F28115 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B2083F3A2C05BD0A00F28115 /* AddProductViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B2083F452C05DB8700F28115 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				B2083F462C05DBB600F28115 /* AddProductFlowCoordinator.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
 		B27A5A9E2C0487B6003CC2AB /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,6 +485,7 @@
 		CE9E0CF02A809BB5002B737F /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				B2083F3E2C05DB5300F28115 /* AddProductsScene */,
 				B2E9430E2BF46DF00012F99D /* SearchProductsScene */,
 				CE9E0CF12A809BB5002B737F /* FetchProductsScene */,
 				CE9E0CFC2A809BB5002B737F /* SplashScreenScene */,
@@ -680,6 +726,7 @@
 				CE9E0D2F2A809BB6002B737F /* FetchProductsDIContainer.swift */,
 				CE9E0D302A809BB6002B737F /* HomeSceneDIContainer.swift */,
 				B27A5A9A2C048288003CC2AB /* SearchProductsDIContainer.swift */,
+				B2083F482C05DBFE00F28115 /* AddProductDIContainer.swift */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -829,6 +876,7 @@
 				CE9E0D5D2A809BB6002B737F /* HomeHeaderView.xib in Resources */,
 				B2E943172BF46E330012F99D /* SearchProductsViewController.xib in Resources */,
 				CE9E0D592A809BB6002B737F /* SplashViewController.xib in Resources */,
+				B2083F422C05DB7400F28115 /* AddProductViewController.xib in Resources */,
 				CE9E0D522A809BB6002B737F /* ProductCollectionViewCell.xib in Resources */,
 				CE9E0D5B2A809BB6002B737F /* HomeViewController.xib in Resources */,
 			);
@@ -868,6 +916,7 @@
 				CE9E0D622A809BB6002B737F /* APIEndpoints.swift in Sources */,
 				CE9E0D492A809BB6002B737F /* ProductsResponse.swift in Sources */,
 				CE9E0D772A809BB6002B737F /* Logger.swift in Sources */,
+				B2083F3B2C05BD0A00F28115 /* AddProductViewModel.swift in Sources */,
 				CE9E0D782A809BB6002B737F /* Global.swift in Sources */,
 				CE9E0D4A2A809BB6002B737F /* FetchProductsUseCase.swift in Sources */,
 				CE9E0D762A809BB6002B737F /* BaseCoordinator.swift in Sources */,
@@ -894,6 +943,7 @@
 				B27A5AA42C04A18D003CC2AB /* SearchProductsRepository.swift in Sources */,
 				CE9E0D502A809BB6002B737F /* LoadingView.swift in Sources */,
 				CE9E0D4F2A809BB6002B737F /* Alertable.swift in Sources */,
+				B2083F472C05DBB600F28115 /* AddProductFlowCoordinator.swift in Sources */,
 				CE9E0D682A809BB6002B737F /* CoreDataStorage.swift in Sources */,
 				CE9E0D7B2A809BB6002B737F /* UIImage+CIImage+Extension.swift in Sources */,
 				CE9E0D452A809BB6002B737F /* NetworkService.swift in Sources */,
@@ -906,6 +956,7 @@
 				CE9E0D562A809BB6002B737F /* FetchProductsFlowCoordinator.swift in Sources */,
 				CE9E0D812A809BB6002B737F /* Cancellable.swift in Sources */,
 				CE9E0D7D2A809BB6002B737F /* UIViewController+Extension.swift in Sources */,
+				B2083F492C05DBFE00F28115 /* AddProductDIContainer.swift in Sources */,
 				B27A5A9D2C0483AE003CC2AB /* SearchProductsUseCase.swift in Sources */,
 				CE9E0D802A809BB6002B737F /* ConnectionError.swift in Sources */,
 				CE9E0D532A809BB6002B737F /* ProductCollectionViewCell.swift in Sources */,
@@ -916,6 +967,7 @@
 				CE9E0D662A809BB6002B737F /* ProductsResponseEntity+Mapping.swift in Sources */,
 				CE9E0D742A809BB6002B737F /* HomeSceneDIContainer.swift in Sources */,
 				CE9E0D612A809BB6002B737F /* HomeFlowCoordinator.swift in Sources */,
+				B2083F412C05DB7400F28115 /* AddProductViewController.swift in Sources */,
 				CE9E0D692A809BB6002B737F /* ProductUserDefaultStorage.swift in Sources */,
 				CE9E0D652A809BB6002B737F /* FetchProductsRepository.swift in Sources */,
 				CE9E0D572A809BB6002B737F /* SplashViewController.swift in Sources */,

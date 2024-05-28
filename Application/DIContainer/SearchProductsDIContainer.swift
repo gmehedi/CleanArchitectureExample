@@ -28,13 +28,13 @@ final class SearchProductsDIContainer: AppDIContainer {
     lazy var productsResponseCoreDataManager: ProductsResponseCoreDataManagerProtocol = ProductsResponseCoreDataManager(coreDataStorage: CoreDataStorage.shared)
 
     // MARK: - Make Products Repository
-    func getSearchProductsRepositoryProtocol() -> SearchProductsRepository {
+    func getSearchProductsRepository() -> SearchProductsRepository {
         return SearchProductsRepository(dataTransferService: self.dependencies.apiDataTransferService, cacheProductsCoreDataStorage: self.productsResponseCoreDataManager)
     }
     
     // MARK: - Make Product Use Case
     func makeSearchProductsUseCase() -> SearchProductsUseCase {
-        return SearchProductsUseCase(productsRepositoryProtocol: self.getSearchProductsRepositoryProtocol(), productsResponseCoreDataManager: self.searchProductsResponseCache)
+        return SearchProductsUseCase(productsRepositoryProtocol: self.getSearchProductsRepository(), productsResponseCoreDataManager: self.searchProductsResponseCache)
     }
     
     // MARK: - Make Chatting View Model

@@ -28,13 +28,13 @@ final class FetchProductsDIContainer: AppDIContainer {
     lazy var productsResponseCoreDataManager: ProductsResponseCoreDataManagerProtocol = ProductsResponseCoreDataManager(coreDataStorage: CoreDataStorage.shared)
 
     // MARK: - Make Products Repository
-    func getProductsRepositoryProtocol() -> FetchProductsRepository {
+    func getProductsRepository() -> FetchProductsRepository {
         return FetchProductsRepository(dataTransferService: self.dependencies.apiDataTransferService, cacheProductsCoreDataStorage: self.productsResponseCoreDataManager)
     }
     
     // MARK: - Make Product Use Case
     func makeFetchProductsUseCase() -> FetchProductsUseCase {
-        return FetchProductsUseCase(productsRepositoryProtocol: getProductsRepositoryProtocol(), productsResponseCoreDataManager: self.fetchProductsResponseCache)
+        return FetchProductsUseCase(productsRepositoryProtocol: self.getProductsRepository(), productsResponseCoreDataManager: self.fetchProductsResponseCache)
     }
     
     // MARK: - Make Chatting View Model

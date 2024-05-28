@@ -158,6 +158,9 @@ extension HomeViewController {
         case .getProduct:
             self.coordinator?.goToFetchProductsViewController()
             break
+        case .addProduct:
+            self.coordinator?.goToAddProductViewController()
+            break
         }
     }
 }

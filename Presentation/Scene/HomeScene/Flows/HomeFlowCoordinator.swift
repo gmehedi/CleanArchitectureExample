@@ -64,4 +64,14 @@ extension HomeFlowCoordinator {
         }
     }
     
+    func goToAddProductViewController() {
+        
+        if let nav = self.navigationController {
+            let addProductDIContainer = self.appDIContainer.makeAddProductSceneDIContainer()
+            let coordinator = addProductDIContainer.makeAddProductFlowCoordinator(navigationController: nav)
+            self.childoordinator.append(coordinator)
+            coordinator.start()
+        }
+    }
+    
 }
