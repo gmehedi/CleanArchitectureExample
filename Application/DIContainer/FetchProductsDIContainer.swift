@@ -15,8 +15,6 @@ final class FetchProductsDIContainer: AppDIContainer {
     
     // MARK: - Dependencies
     private let dependencies: Dependencies
-
-   // private let appDIContainer =  AppDIContainer()
       
     // MARK: - Inject Dependencies
     init(dependencies: Dependencies) {
@@ -28,14 +26,8 @@ final class FetchProductsDIContainer: AppDIContainer {
     
     // MARK: - Persistent Storage
     lazy var productsResponseCoreDataManager: ProductsResponseCoreDataManagerProtocol = ProductsResponseCoreDataManager(coreDataStorage: CoreDataStorage.shared)
-    
-    
-    // MARK: - Persistent Storage
-    lazy var productsQueriesRepositoryCache: ProductsQueriesCoreDataManager = ProductsQueriesCoreDataManager(coreDataStorage: CoreDataStorage.shared, maxStorageLimit: 100)
-    
 
     // MARK: - Make Products Repository
-    
     func getProductsRepositoryProtocol() -> ProductsRepository {
         return ProductsRepository(dataTransferService: self.dependencies.apiDataTransferService, cacheProductsCoreDataStorage: self.productsResponseCoreDataManager)
     }

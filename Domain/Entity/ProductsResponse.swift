@@ -7,15 +7,7 @@
 
 import Foundation
 
-// MARK: - Products
-//struct ProductsResponse: Equatable {
-//    static func == (lhs: ProductsResponse, rhs: ProductsResponse) -> Bool {
-//        return true
-//    }
-//    
-//    let products: ProductResponse
-//}
-
+// MARK: - Product Response
 struct ProductResponse: Equatable {
     let total: Int32
     let skip: Int32
@@ -23,8 +15,7 @@ struct ProductResponse: Equatable {
     let products: [ProductItem]
 }
 
-
-// MARK: - Product
+// MARK: - Product Item
 struct ProductItem: Equatable {
     let id: Int32
     let title, description: String
@@ -47,6 +38,6 @@ struct ProductItem: Equatable {
         case category
         case thumbnail
         case images
-        // Note: `description` and `discount` are not included here, so they will be ignored.
+        //Note: `description` and `discount` are not included here, so they will be ignored.
     }
 }

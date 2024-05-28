@@ -14,8 +14,6 @@ final class HomeSceneDIContainer: AppDIContainer {
     
     // MARK: - Dependencies
     private let dependencies: Dependencies
-
-  //  private let appDIContainer =  AppDIContainer()
       
     // MARK: - Inject Dependencies
     init(dependencies: Dependencies) {
@@ -49,7 +47,6 @@ extension HomeSceneDIContainer {
             HomeMenuModel(title: "Get Products", iconName: "getProducts", actionType: .getProduct),
             HomeMenuModel(title: "Search Products", iconName: "searchProducts", actionType: .searchProduct)
         ]
-        
     }
     
 }
