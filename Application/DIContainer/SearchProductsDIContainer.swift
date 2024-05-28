@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class SearchProductsDIContainer {
+final class SearchProductsDIContainer: AppDIContainer {
     
     struct Dependencies {
         let apiDataTransferService: DataTransferService
@@ -16,7 +16,7 @@ final class SearchProductsDIContainer {
     // MARK: - Dependencies
     private let dependencies: Dependencies
 
-    private let appDIContainer =  AppDIContainer()
+  //  private let appDIContainer =  AppDIContainer()
       
     // MARK: - Inject Dependencies
     init(dependencies: Dependencies) {
@@ -52,7 +52,7 @@ final class SearchProductsDIContainer {
     // MARK: - Flow Coordinators
     func makeSearchProductsFlowCoordinator(navigationController: RootNavigationController) -> SearchProductsFlowCoordinator {
         return SearchProductsFlowCoordinator(
-            navigationController: navigationController, appDIContainer: appDIContainer
+            navigationController: navigationController, appDIContainer: self
         )
     }
     

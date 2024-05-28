@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class HomeSceneDIContainer {
+final class HomeSceneDIContainer: AppDIContainer {
     
     struct Dependencies {
     }
@@ -15,7 +15,7 @@ final class HomeSceneDIContainer {
     // MARK: - Dependencies
     private let dependencies: Dependencies
 
-    private let appDIContainer =  AppDIContainer()
+  //  private let appDIContainer =  AppDIContainer()
       
     // MARK: - Inject Dependencies
     init(dependencies: Dependencies) {
@@ -30,7 +30,7 @@ final class HomeSceneDIContainer {
     // MARK: - Flow Coordinators
     func makeHomeFlowCoordinator(navigationController: RootNavigationController) -> HomeFlowCoordinator {
         return HomeFlowCoordinator(
-            navigationController: navigationController, appDIContainer: appDIContainer
+            navigationController: navigationController, appDIContainer: self
         )
     }
     

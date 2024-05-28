@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class SplashSceneDIContainer {
+final class SplashSceneDIContainer: AppDIContainer {
     
     struct Dependencies {
     }
@@ -23,7 +23,7 @@ final class SplashSceneDIContainer {
     // MARK: - Flow Coordinators
     func makeSplashFlowCoordinator(navigationController: RootNavigationController) -> SplashFlowCoordinator {
         return SplashFlowCoordinator(
-            navigationController: navigationController, appDIContainer: AppDIContainer()
+            navigationController: navigationController, appDIContainer: self
         )
     }
     

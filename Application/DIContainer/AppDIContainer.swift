@@ -6,8 +6,8 @@
 //
 
 import Foundation
-
-final class AppDIContainer {
+ 
+class AppDIContainer {
     
     lazy var appConfiguration = AppConfiguration()
     

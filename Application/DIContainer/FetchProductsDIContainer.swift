@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class FetchProductsDIContainer {
+final class FetchProductsDIContainer: AppDIContainer {
     
     struct Dependencies {
         let apiDataTransferService: DataTransferService
@@ -16,7 +16,7 @@ final class FetchProductsDIContainer {
     // MARK: - Dependencies
     private let dependencies: Dependencies
 
-    private let appDIContainer =  AppDIContainer()
+   // private let appDIContainer =  AppDIContainer()
       
     // MARK: - Inject Dependencies
     init(dependencies: Dependencies) {
@@ -53,7 +53,7 @@ final class FetchProductsDIContainer {
     // MARK: - Flow Coordinators
     func makeFetchProductsFlowCoordinator(navigationController: RootNavigationController) -> FetchProductsFlowCoordinator {
         return FetchProductsFlowCoordinator(
-            navigationController: navigationController, appDIContainer: appDIContainer
+            navigationController: navigationController, appDIContainer: self
         )
     }
     
